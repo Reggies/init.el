@@ -23,10 +23,7 @@
 
               ;; All we love xmonad
               window-combination-resize t
-              focus-follows-mouse t
-
-              ;; `insert-parentheses' is quite handy in any language!
-              parens-require-spaces nil)
+              focus-follows-mouse t)
 
 (require 'fringe)
 (set-fringe-mode '(5 . 0))                     ;; left only fringes
@@ -58,6 +55,7 @@
 (add-hook 'c++-mode-hook
           (lambda ()
             (set (make-local-variable 'make-backup-files) nil)
+            (set (make-local-variable 'parens-require-spaces) nil)
             (define-key c++-mode-map (kbd "RET") 'newline-and-indent)))
 
 (defun run-compilation ()
