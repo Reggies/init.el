@@ -11,6 +11,7 @@
               mark-even-if-inactive nil
               truncate-lines t
               compilation-scroll-output t
+              case-fold-search nil
 
               ;; It should be done together
               initial-frame-alist '((cursor-type . box))
