@@ -3,13 +3,13 @@
               completion-ignore-case t
               read-file-name-completion-ignore-case nil
               column-number-mode t
-              comment-column 90
-              fill-column 100
+              comment-column 60
+              fill-column 60
               scroll-error-top-bottom nil
               blink-matching-delay 0.25
               backward-delete-char-untabify-method 'hungry
               mark-even-if-inactive nil
-              truncate-lines t
+              truncate-lines nil
               compilation-scroll-output t
               case-fold-search nil
 
