@@ -68,7 +68,7 @@
 
 (setq special-display-function
       (lambda (buffer &optional args)
-        (split-window)
+        (split-window-right)
         (switch-to-buffer buffer)
         (get-buffer-window buffer 0)))
 
