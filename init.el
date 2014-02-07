@@ -35,6 +35,8 @@
 (pending-delete-mode t)
 (show-paren-mode t)
 
+(load-theme 'tango-dark)
+
 (defun move-indent-or-beginning-of-line ()
   "Function sets point at the first non-whitespace character in the current line and further sets point at the beginning of line."
   (interactive)
