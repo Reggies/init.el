@@ -19,6 +19,8 @@
               
               ;; awk for all
               c-basic-offset 4
+              c-offsets-alist '(cons (statement-case-open . 4)
+                                     c-offsets-alist)
               c-default-style '((java-mode . "java")
                                 (other . "awk"))
 
