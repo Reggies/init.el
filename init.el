@@ -34,6 +34,7 @@
 (tool-bar-mode -1)
 (pending-delete-mode t)
 (show-paren-mode t)
+(global-linum-mode t)
 
 (load-theme 'tango-dark)
 
