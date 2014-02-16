@@ -64,10 +64,6 @@
             (set (make-local-variable 'parens-require-spaces) nil)
             (define-key c++-mode-map (kbd "RET") 'newline-and-indent)))
 
-(defun run-compilation ()
-  (interactive)
-  (compile "make -k"))
-
 (setq special-display-buffer-names
       '("*compilation*"))
 
@@ -76,13 +72,27 @@
         (split-window-right)
         (get-buffer-window buffer 0)))
 
+(defcustom shrink-delta 10 
+  "Used as DELTA in `shrink-window-horizontally'")
+
 (setq handy-keys-mode-map 
       (let ((map (make-sparse-keymap)))
         (define-key map (kbd "C-<f4>") 'ff-find-other-file)
         (define-key map (kbd "C-a") 'move-indent-or-beginning-of-line)
         (define-key map (kbd "<home>") 'move-indent-or-beginning-of-line)
         (define-key map (kbd "M-p") 'backward-kill-word)
-        (define-key map (kbd "<f5>") 'run-compilation)
+
+        (define-key map (kbd "<f5>") (lambda ()
+                                       (interactive)
+                                       (compile "make -k")))
+
+        (define-key map (kbd "C-}") (lambda ()
+                                      (interactive)
+                                      (shrink-window-horizontally (- shrink-delta))))
+
+        (define-key map (kbd "C-{") (lambda ()
+                                      (interactive)
+                                      (shrink-window-horizontally shrink-delta)))
         map))
 
 (define-minor-mode handy-keys-mode
