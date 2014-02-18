@@ -29,7 +29,8 @@
               cc-other-file-alist '(("\\.cc$" ff-cc-hh-converter)
                                     ("\\.hh$" ff-cc-hh-converter)
                                     ("\\.c$" (".h"))
-                                    ("\\.h$" (".cpp" ".c" ".cc" ".C" ".CC" ".cxx")))
+                                    ("\\.h$" (".cpp" ".c" ".cc" ".C" ".CC" ".cxx"))
+                                    ("\\.cpp$" (".h" ".hpp")))
               ;; All we love xmonad
               window-combination-resize t
               focus-follows-mouse t)
