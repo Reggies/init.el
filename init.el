@@ -16,14 +16,20 @@
               ;; It should be done together
               initial-frame-alist '((cursor-type . box))
               blink-cursor-alist '((box . hollow))
-              
-              ;; awk for all
+
+              ;; cc-mode
               c-basic-offset 4
+
               c-offsets-alist '(cons (statement-case-open . 4)
                                      c-offsets-alist)
+
               c-default-style '((java-mode . "java")
                                 (other . "awk"))
 
+              cc-other-file-alist '(("\\.cc$" ff-cc-hh-converter)
+                                    ("\\.hh$" ff-cc-hh-converter)
+                                    ("\\.c$" (".h"))
+                                    ("\\.h$" (".cpp" ".c" ".cc" ".C" ".CC" ".cxx")))
               ;; All we love xmonad
               window-combination-resize t
               focus-follows-mouse t)
@@ -47,7 +53,7 @@
   (let ((old-point (point)))
     (back-to-indentation)
     (when (equal old-point (point))
-        (move-beginning-of-line 1))))
+      (move-beginning-of-line 1))))
 
 (setq auto-mode-alist 
       (append '(("\\.h\\'" . c++-mode)
@@ -57,12 +63,6 @@
 (add-hook 'find-file-hook
           (lambda ()
             (auto-save-mode -1)))
-
-(add-hook 'c++-mode-hook
-          (lambda ()
-            (set (make-local-variable 'make-backup-files) nil)
-            (set (make-local-variable 'parens-require-spaces) nil)
-            (define-key c++-mode-map (kbd "RET") 'newline-and-indent)))
 
 (setq special-display-buffer-names
       '("*compilation*"))
@@ -101,6 +101,26 @@
   :keymap handy-keys-mode-map
   :init-value t)
 
+;;
+;; Disable backup files for C++
+(add-hook 'c++-mode-hook
+          (lambda ()
+            (set (make-local-variable 'make-backup-files) nil)))
+
+;;
+;; \C-( shall not produce any space chars
+(add-hook 'c++-mode-hook
+          (lambda ()
+            (set (make-local-variable 'parens-require-spaces) nil)))
+
+
+;;
+;; Indent new line after RET
+(add-hook 'c++-mode-hook
+          (lambda ()
+            (define-key c++-mode-map (kbd "RET") 'newline-and-indent)))
+
+;;
 ;; C++11 Enum classes hack from gist.github.com/2626303
 (defun inside-class-enum-p (pos)
   "Checks if POS is within the braces of a C++ \"enum class\"."
@@ -129,6 +149,7 @@
 
 (add-hook 'c++-mode-hook 'fix-enum-class)
 
+;; 
 ;; Fixin some c++11 keywords as in http://stackoverflow.com/a/17087959
 (add-hook
  'c++-mode-hook
