@@ -12,7 +12,7 @@
               truncate-lines nil
               compilation-scroll-output t
               case-fold-search nil
-
+              
               ;; It should be done together
               initial-frame-alist '((cursor-type . box))
               blink-cursor-alist '((box . hollow))
@@ -29,11 +29,16 @@
               cc-other-file-alist '(("\\.cc$" ff-cc-hh-converter)
                                     ("\\.hh$" ff-cc-hh-converter)
                                     ("\\.c$" (".h"))
+                                    ("\\.hpp$" (".cpp" ".c" ".cc", ".C"))
                                     ("\\.h$" (".cpp" ".c" ".cc" ".C" ".CC" ".cxx"))
                                     ("\\.cpp$" (".h" ".hpp")))
               ;; All we love xmonad
               window-combination-resize t
               focus-follows-mouse t)
+
+;; (require 'package)
+;; (add-to-list 'package-archives 
+;;              '("melpa" . "http://melpa.milkybox.net/packages/") t)
 
 (require 'fringe)
 (set-fringe-mode '(5 . 0))                     ;; left only fringes
@@ -73,6 +78,10 @@
         (split-window-right)
         (get-buffer-window buffer 0)))
 
+(defun reconfigure
+  (interactive)
+  (load-file "~/.emacs.d/init.el"))
+
 (defcustom shrink-delta 10 
   "Used as DELTA in `shrink-window-horizontally'")
 
@@ -86,6 +95,10 @@
         (define-key map (kbd "<f5>") (lambda ()
                                        (interactive)
                                        (compile "make -k")))
+
+        (define-key map (kbd "<f12>") (lambda ()
+                                        (interactive)
+                                        (async-shell-command "./a.out")))
 
         (define-key map (kbd "C-}") (lambda ()
                                       (interactive)
@@ -167,6 +180,6 @@
            ("\\<0[xX][0-9A-Fa-f]+\\>" . font-lock-constant-face)
 
            ;; integer/float/scientific numbers
-           ("\\<[\\-+]*[0-9]*\\.?[0-9]+\\([ulUL]+\\|[eE][\\-+]?[0-9]+\\)?\\>" . font-lock-constant-face)
+           ("\\<[\\-+]*[0-9]*\\.?[0-9]+\\f?\\([ulUL]+\\|[eE][\\-+]?[0-9]+\\)?\\>" . font-lock-constant-face)
            ))
     ) t)
