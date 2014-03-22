@@ -17,6 +17,8 @@
               initial-frame-alist '((cursor-type . box))
               blink-cursor-alist '((box . hollow))
 
+              tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80)
+
               ;; cc-mode
               c-basic-offset 4
 
@@ -87,7 +89,16 @@
 
 (setq handy-keys-mode-map 
       (let ((map (make-sparse-keymap)))
-        (define-key map (kbd "C-<f4>") 'ff-find-other-file)
+        ;; ff-find-other-file [in other buffer = nil] [ignore includes = t]
+        (define-key map (kbd "C-<f4>") (lambda ()
+                                         (interactive)
+                                         (ff-find-other-file nil t)))
+
+        ;; ff-find-other-file [in other buffer = nil] [ignore includes = nil]
+        (define-key map (kbd "C-x C-o") (lambda ()
+                                          (interactive)
+                                          (ff-find-other-file)))
+
         (define-key map (kbd "C-a") 'move-indent-or-beginning-of-line)
         (define-key map (kbd "<home>") 'move-indent-or-beginning-of-line)
         (define-key map (kbd "M-p") 'backward-kill-word)
@@ -163,7 +174,7 @@
 
 (add-hook 'c++-mode-hook 'fix-enum-class)
 
-;; 
+
 ;; Fixin some c++11 keywords as in http://stackoverflow.com/a/17087959
 (add-hook
  'c++-mode-hook
@@ -174,7 +185,7 @@
 
            ;; PREPROCESSOR_CONSTANT, PREPROCESSORCONSTANT
            ("\\<[A-Z]*_[A-Z_]+\\>" . font-lock-constant-face)
-           ("\\<[A-Z]\\{3,\\}\\>"  . font-lock-constant-face)
+           ("\\<[A-Z]\\{5,\\}\\>"  . font-lock-constant-face)
 
            ;; hexadecimal numbers
            ("\\<0[xX][0-9A-Fa-f]+\\>" . font-lock-constant-face)
