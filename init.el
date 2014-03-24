@@ -31,7 +31,7 @@
               cc-other-file-alist '(("\\.cc$" ff-cc-hh-converter)
                                     ("\\.hh$" ff-cc-hh-converter)
                                     ("\\.c$" (".h"))
-                                    ("\\.hpp$" (".cpp" ".c" ".cc", ".C"))
+                                    ("\\.hpp$" (".cpp" ".c" ".cc" ".C"))
                                     ("\\.h$" (".cpp" ".c" ".cc" ".C" ".CC" ".cxx"))
                                     ("\\.cpp$" (".h" ".hpp")))
               ;; All we love xmonad
