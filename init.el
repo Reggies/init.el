@@ -12,7 +12,13 @@
               truncate-lines nil
               compilation-scroll-output t
               case-fold-search nil
-              
+
+              default-frame-alist '((left-fringe . 5)
+                                    (right-fringe . 0)
+                                    (background-mode . 'dark))
+
+              auto-insert-query nil
+
               ;; It should be done together
               initial-frame-alist '((cursor-type . box))
               blink-cursor-alist '((box . hollow))
@@ -45,6 +51,7 @@
 (require 'fringe)
 (set-fringe-mode '(5 . 0))                     ;; left only fringes
 
+(auto-insert-mode t)
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
@@ -55,7 +62,7 @@
 (load-theme 'tango-dark)
 
 (defun move-indent-or-beginning-of-line ()
-  "Function sets point at the first non-whitespace character in the current line and further sets point at the beginning of line."
+  "Jumps on the line indent and than on the beginning of line."
   (interactive)
   (handle-shift-selection)
   (let ((old-point (point)))
@@ -94,10 +101,17 @@
                                          (interactive)
                                          (ff-find-other-file nil t)))
 
+        (define-key map (kbd "C-<f5>") 'reconfigure)
+
         ;; ff-find-other-file [in other buffer = nil] [ignore includes = nil]
         (define-key map (kbd "C-x C-o") (lambda ()
                                           (interactive)
                                           (ff-find-other-file)))
+
+        (define-key map (kbd "C-x C-r") 'replace-string)
+
+        (define-key map (kbd "M-\"") 'insert-pair)
+        (define-key map (kbd "M-<") 'insert-pair)
 
         (define-key map (kbd "C-a") 'move-indent-or-beginning-of-line)
         (define-key map (kbd "<home>") 'move-indent-or-beginning-of-line)
@@ -174,7 +188,6 @@
 
 (add-hook 'c++-mode-hook 'fix-enum-class)
 
-
 ;; Fixin some c++11 keywords as in http://stackoverflow.com/a/17087959
 (add-hook
  'c++-mode-hook
@@ -194,3 +207,24 @@
            ("\\<[\\-+]*[0-9]*\\.?[0-9]+\\f?\\([ulUL]+\\|[eE][\\-+]?[0-9]+\\)?\\>" . font-lock-constant-face)
            ))
     ) t)
+
+;; autoinsert C/C++ header
+(define-auto-insert
+  (cons "\\.\\([Hh]\\|hh\\|hpp\\)\\'" "Include guard")
+  '(nil
+    (let* ((noext (substring buffer-file-name 0 (match-beginning 0)))
+           (nopath (file-name-nondirectory noext))
+           (ident (concat (upcase nopath) "_H_")))
+      (concat "#ifndef " ident "\n"
+              "#define " ident "\n\n\n"
+              "#endif // " ident "\n"))))
+
+;; auto insert C/C++
+(define-auto-insert
+  (cons "\\.\\([Cc]\\|cc\\|cpp\\)\\'" "Include header")
+  '(nil
+    (let* ((noext (substring buffer-file-name 0 (match-beginning 0)))
+           (nopath (file-name-nondirectory noext))
+           (ident (concat nopath ".h")))
+      (if (file-exists-p ident)
+          (concat "#include \"" ident "\"\n")))))
