@@ -87,31 +87,50 @@
         (split-window-right)
         (get-buffer-window buffer 0)))
 
-(defun reconfigure
+(defun switch-to-header ()
+  "Find other file ignoring includes"
+  (interactive)
+  (ff-find-other-file nil t))
+
+(defun reload-init-file ()
+  "Just load configuration again"
   (interactive)
   (load-file "~/.emacs.d/init.el"))
 
 (defcustom shrink-delta 10 
   "Used as DELTA in `shrink-window-horizontally'")
 
+(defun upcase-char (n)
+  "Upcase forward character"
+  (interactive "p")
+  (upcase-region (point)
+                     (forward-point n))
+  (forward-char n))
+
+(defun downcase-char (n)
+  "Downcase forward character"
+  (interactive "p")
+  (downcase-region (point)
+                   (forward-point n))
+  (forward-char n))
+
 (setq handy-keys-mode-map 
       (let ((map (make-sparse-keymap)))
         ;; ff-find-other-file [in other buffer = nil] [ignore includes = t]
-        (define-key map (kbd "C-<f4>") (lambda ()
-                                         (interactive)
-                                         (ff-find-other-file nil t)))
+        (define-key map (kbd "C-<f4>") 'switch-to-header)
 
-        (define-key map (kbd "C-<f5>") 'reconfigure)
+        (define-key map (kbd "C-<f5>") 'reload-init-file)
 
         ;; ff-find-other-file [in other buffer = nil] [ignore includes = nil]
-        (define-key map (kbd "C-x C-o") (lambda ()
-                                          (interactive)
-                                          (ff-find-other-file)))
+        (define-key map (kbd "C-x C-o") 'ff-find-other-file)
 
         (define-key map (kbd "C-x C-r") 'replace-string)
 
         (define-key map (kbd "M-\"") 'insert-pair)
         (define-key map (kbd "M-<") 'insert-pair)
+
+        (define-key map (kbd "C-S-u") 'upcase-char)
+        (define-key map (kbd "C-S-l") 'downcase-char)
 
         (define-key map (kbd "C-a") 'move-indent-or-beginning-of-line)
         (define-key map (kbd "<home>") 'move-indent-or-beginning-of-line)
