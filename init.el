@@ -44,6 +44,9 @@
               window-combination-resize t
               focus-follows-mouse t)
 
+(autoload 'glsl-mode "glsl-mode" nil t)
+(setq load-path (cons "~/.emacs.d" load-path))
+
 ;; (require 'package)
 ;; (add-to-list 'package-archives 
 ;;              '("melpa" . "http://melpa.milkybox.net/packages/") t)
@@ -72,7 +75,13 @@
 
 (setq auto-mode-alist 
       (append '(("\\.h\\'" . c++-mode)
-                ("\\.c\\'" . c++-mode))
+                ("\\.c\\'" . c++-mode)
+                ("\\.vert\\'" . glsl-mode)
+                ("\\.vertex\\'" . glsl-mode)
+                ("\\.frag\\'" . glsl-mode)
+                ("\\.pixel\\'" . glsl-mode)
+                ("\\.vs\\'" . glsl-mode)
+                ("\\.fs\\'" . glsl-mode))
               auto-mode-alist))
 
 (add-hook 'find-file-hook
@@ -170,7 +179,6 @@
 (add-hook 'c++-mode-hook
           (lambda ()
             (set (make-local-variable 'parens-require-spaces) nil)))
-
 
 ;;
 ;; Indent new line after RET
