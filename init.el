@@ -80,6 +80,8 @@
                 ("\\.vertex\\'" . glsl-mode)
                 ("\\.frag\\'" . glsl-mode)
                 ("\\.pixel\\'" . glsl-mode)
+                ("\\.geom\\'" . glsl-mode)
+                ("\\.gs\\'" . glsl-mode)
                 ("\\.vs\\'" . glsl-mode)
                 ("\\.fs\\'" . glsl-mode))
               auto-mode-alist))
@@ -93,6 +95,7 @@
 
 (setq special-display-function
       (lambda (buffer &optional args)
+        (delete-other-windows)
         (split-window-right)
         (get-buffer-window buffer 0)))
 
@@ -113,7 +116,7 @@
   "Upcase forward character"
   (interactive "p")
   (upcase-region (point)
-                     (forward-point n))
+                 (forward-point n))
   (forward-char n))
 
 (defun downcase-char (n)
@@ -138,6 +141,10 @@
         (define-key map (kbd "M-\"") 'insert-pair)
         (define-key map (kbd "M-<") 'insert-pair)
 
+        (define-key map (kbd "C-;") 'upcase-char)
+        (define-key map (kbd "C-l") 'downcase-char)
+
+        ;; this pair is for backward compatibility, if you found you don't need you anymore - purge it
         (define-key map (kbd "C-S-u") 'upcase-char)
         (define-key map (kbd "C-S-l") 'downcase-char)
 
