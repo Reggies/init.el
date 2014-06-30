@@ -259,12 +259,21 @@
               "#define " ident "\n\n\n"
               "#endif // " ident "\n"))))
 
+(defun get-some (xs)
+  (or (car xs)
+      (get-some (cdr xs))))
+
 ;; auto insert C/C++
 (define-auto-insert
   (cons "\\.\\([Cc]\\|cc\\|cpp\\)\\'" "Include header")
   '(nil
     (let* ((noext (substring buffer-file-name 0 (match-beginning 0)))
            (nopath (file-name-nondirectory noext))
-           (ident (concat nopath ".h")))
+           (ident (get-some (mapcar (lambda (ext)
+                                      (let ((filename (concat nopath ext)))
+                                        (if (file-exists-p filename)
+                                            filename
+                                          nil)))
+                                    (list ".h" ".hpp")))))
       (if (file-exists-p ident)
           (concat "#include \"" ident "\"\n")))))
