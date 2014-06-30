@@ -1,0 +1,7 @@
+# name: namespace ...
+# key: ns
+# --
+namespace ${castle}
+{
+    $0
+}

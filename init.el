@@ -51,9 +51,13 @@
 ;; (add-to-list 'package-archives 
 ;;              '("melpa" . "http://melpa.milkybox.net/packages/") t)
 
+(add-to-list 'load-path "~/.emacs.d/yasnippet.el")
+
 (require 'fringe)
 (set-fringe-mode '(5 . 0))                     ;; left only fringes
 
+(require 'yasnippet)
+(yas-global-mode 1)
 (auto-insert-mode t)
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
@@ -62,7 +66,7 @@
 (show-paren-mode t)
 (global-linum-mode t)
 
-(load-theme 'tango-dark)
+(load-theme 'tango)
 
 (defun move-indent-or-beginning-of-line ()
   "Jumps on the line indent and than on the beginning of line."
@@ -72,6 +76,10 @@
     (back-to-indentation)
     (when (equal old-point (point))
       (move-beginning-of-line 1))))
+
+(defun compile-current-dir ()
+  (interactive)
+  (compile "make -k"))
 
 (setq auto-mode-alist 
       (append '(("\\.h\\'" . c++-mode)
@@ -152,9 +160,7 @@
         (define-key map (kbd "<home>") 'move-indent-or-beginning-of-line)
         (define-key map (kbd "M-p") 'backward-kill-word)
 
-        (define-key map (kbd "<f5>") (lambda ()
-                                       (interactive)
-                                       (compile "make -k")))
+        (define-key map (kbd "<f5>") 'compile-current-dir)
 
         (define-key map (kbd "<f12>") (lambda ()
                                         (interactive)
