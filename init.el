@@ -44,14 +44,14 @@
               window-combination-resize t
               focus-follows-mouse t)
 
-(autoload 'glsl-mode "glsl-mode" nil t)
-(setq load-path (cons "~/.emacs.d" load-path))
-
 ;; (require 'package)
 ;; (add-to-list 'package-archives 
 ;;              '("melpa" . "http://melpa.milkybox.net/packages/") t)
 
-(add-to-list 'load-path "~/.emacs.d/yasnippet.el")
+(autoload 'glsl-mode "glsl-mode" nil t)
+(autoload 'yasnippet-mode "yasnippet" nil t)
+
+(add-to-list 'load-path "~/.emacs.d")
 
 (require 'fringe)
 (set-fringe-mode '(5 . 0))                     ;; left only fringes
