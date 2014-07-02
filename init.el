@@ -51,7 +51,7 @@
 (autoload 'glsl-mode "glsl-mode" nil t)
 (autoload 'yasnippet-mode "yasnippet" nil t)
 
-(add-to-list 'load-path "~/.emacs.d")
+(add-to-list 'load-path user-emacs-directory)
 
 (require 'fringe)
 (set-fringe-mode '(5 . 0))                     ;; left only fringes
