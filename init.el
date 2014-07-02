@@ -248,7 +248,7 @@
            ))
     ) t)
 
-;; autoinsert C/C++ header
+;; auto insert include guard into newly created CPP header
 (define-auto-insert
   (cons "\\.\\([Hh]\\|hh\\|hpp\\)\\'" "Include guard")
   '(nil
@@ -263,7 +263,7 @@
   (or (car xs)
       (get-some (cdr xs))))
 
-;; auto insert C/C++
+;; auto insert #include into newly created source CPP file
 (define-auto-insert
   (cons "\\.\\([Cc]\\|cc\\|cpp\\)\\'" "Include header")
   '(nil
