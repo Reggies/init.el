@@ -40,6 +40,7 @@
                                     ("\\.hpp$" (".cpp" ".c" ".cc" ".C"))
                                     ("\\.h$" (".cpp" ".c" ".cc" ".C" ".CC" ".cxx"))
                                     ("\\.cpp$" (".h" ".hpp")))
+
               ;; All we love xmonad
               window-combination-resize t
               focus-follows-mouse t)
@@ -93,6 +94,9 @@
                 ("\\.vs\\'" . glsl-mode)
                 ("\\.fs\\'" . glsl-mode))
               auto-mode-alist))
+
+(setq ff-search-directories 
+      '("." "../include" "../include/*" "../source" "../Include" "../Include/*" "../Source" "../src"))
 
 (add-hook 'find-file-hook
           (lambda ()
