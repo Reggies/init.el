@@ -85,6 +85,7 @@
 (setq auto-mode-alist 
       (append '(("\\.h\\'" . c++-mode)
                 ("\\.c\\'" . c++-mode)
+                ("\\.inl\\'" . c++-mode)
                 ("\\.vert\\'" . glsl-mode)
                 ("\\.vertex\\'" . glsl-mode)
                 ("\\.frag\\'" . glsl-mode)
