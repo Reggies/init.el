@@ -112,6 +112,12 @@
         (split-window-right)
         (get-buffer-window buffer 0)))
 
+(defun toggle-truncate-lines ()
+  "Toggle truncate-lines value in current buffer"
+  (interactive)
+  (set (make-local-variable 'truncate-lines) 
+       (not truncate-lines)))
+
 (defun switch-to-header ()
   "Find other file ignoring includes"
   (interactive)
@@ -166,6 +172,8 @@
         (define-key map (kbd "M-p") 'backward-kill-word)
 
         (define-key map (kbd "<f5>") 'compile-current-dir)
+
+        (define-key map (kbd "C-c t") 'toggle-truncate-lines)
 
         (define-key map (kbd "<f12>") (lambda ()
                                         (interactive)
