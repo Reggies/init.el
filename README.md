@@ -1,6 +1,6 @@
 init.el
 =======
 
-Emacs init file's backup.
+It is backup of my Emacs configuration.
 
-Just backup. And what kind of things you would like to expect?
+There are some snippets, some C++11 hacks, some useful key combinations and some customizations.
