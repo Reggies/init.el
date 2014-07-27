@@ -131,6 +131,15 @@
 (defcustom shrink-delta 10 
   "Used as DELTA in `shrink-window-horizontally'")
 
+(defun shrink-window-to (direction)
+  "Shrink window by shrink-delta to the 'left or to the 'right"
+  (interactive)
+  (if (eq direction 'left)
+      (shrink-window-horizontally (- shrink-delta))
+    (if (eq direciton 'right)
+        (shrink-window-horizontally shrink-delta)
+      ())))
+
 (defun upcase-char (n)
   "Upcase forward character"
   (interactive "p")
@@ -163,10 +172,6 @@
         (define-key map (kbd "C-;") 'upcase-char)
         (define-key map (kbd "C-l") 'downcase-char)
 
-        ;; this pair is for backward compatibility, if you found you don't need you anymore - purge it
-        (define-key map (kbd "C-S-u") 'upcase-char)
-        (define-key map (kbd "C-S-l") 'downcase-char)
-
         (define-key map (kbd "C-a") 'move-indent-or-beginning-of-line)
         (define-key map (kbd "<home>") 'move-indent-or-beginning-of-line)
         (define-key map (kbd "M-p") 'backward-kill-word)
@@ -179,13 +184,14 @@
                                         (interactive)
                                         (async-shell-command "./a.out")))
 
-        (define-key map (kbd "C-}") (lambda ()
-                                      (interactive)
-                                      (shrink-window-horizontally (- shrink-delta))))
+        (define-key map 
+          (kbd "C-}")
+          (shrink-window-to 'left))
 
-        (define-key map (kbd "C-{") (lambda ()
-                                      (interactive)
-                                      (shrink-window-horizontally shrink-delta)))
+        (define-key map
+          (kbd "C-{")
+          (shrink-window-to 'right))
+
         map))
 
 (define-minor-mode handy-keys-mode
