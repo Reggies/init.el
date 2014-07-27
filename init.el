@@ -67,7 +67,7 @@
 (show-paren-mode t)
 (global-linum-mode t)
 
-(load-theme 'tango)
+(load-theme 'tango-dark)
 
 (defun move-indent-or-beginning-of-line ()
   "Jumps on the line indent and than on the beginning of line."
@@ -173,7 +173,7 @@
 
         (define-key map (kbd "<f5>") 'compile-current-dir)
 
-        (define-key map (kbd "C-c t") 'toggle-truncate-lines)
+        (define-key map (kbd "C-c C-t") 'toggle-truncate-lines)
 
         (define-key map (kbd "<f12>") (lambda ()
                                         (interactive)
