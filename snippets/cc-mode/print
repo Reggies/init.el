@@ -1,0 +1,4 @@
+# name: printf("[DEBUG] ...: ...\n", ...);
+# key: print
+# --
+printf("[DEBUG] $1: $2\n", $1);
