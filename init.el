@@ -131,14 +131,13 @@
 (defcustom shrink-delta 10 
   "Used as DELTA in `shrink-window-horizontally'")
 
-(defun shrink-window-to (direction)
-  "Shrink window by shrink-delta to the 'left or to the 'right"
+(defun shrink-window-to-left ()
   (interactive)
-  (if (eq direction 'left)
-      (shrink-window-horizontally (- shrink-delta))
-    (if (eq direciton 'right)
-        (shrink-window-horizontally shrink-delta)
-      ())))
+  (shrink-window-horizontally (-shrink-delta)))
+
+(defun shrink-window-to-right ()
+  (interactive)
+  (shrink-window-horizntally shrink-delta))
 
 (defun upcase-char (n)
   "Upcase forward character"
@@ -184,13 +183,9 @@
                                         (interactive)
                                         (async-shell-command "./a.out")))
 
-        (define-key map 
-          (kbd "C-}")
-          (shrink-window-to 'left))
+        (define-key map (kbd "C-}") 'shrink-window-to-left)
 
-        (define-key map
-          (kbd "C-{")
-          (shrink-window-to 'right))
+        (define-key map (kbd "C-{") 'shrink-window-to-right)
 
         map))
 
