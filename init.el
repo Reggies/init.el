@@ -203,7 +203,7 @@
 
 ;;
 ;; \C-( shall not produce any space chars
-(add-hook 'c++-mode-hook
+(add-hook 'c-mode-command-hook
           (lambda ()
             (set (make-local-variable 'parens-require-spaces) nil)))
 
