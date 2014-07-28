@@ -133,11 +133,11 @@
 
 (defun shrink-window-to-left ()
   (interactive)
-  (shrink-window-horizontally (-shrink-delta)))
+  (shrink-window-horizontally (- shrink-delta)))
 
 (defun shrink-window-to-right ()
   (interactive)
-  (shrink-window-horizntally shrink-delta))
+  (shrink-window-horizontally shrink-delta))
 
 (defun upcase-char (n)
   "Upcase forward character"
