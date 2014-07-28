@@ -202,8 +202,8 @@
             (set (make-local-variable 'make-backup-files) nil)))
 
 ;;
-;; \C-( shall not produce any space chars
-(add-hook 'c-mode-command-hook
+;; insert-parentheses should not produce any space chars
+(add-hook 'c-mode-common-hook
           (lambda ()
             (set (make-local-variable 'parens-require-spaces) nil)))
 
