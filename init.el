@@ -183,9 +183,9 @@
                                         (interactive)
                                         (async-shell-command "./a.out")))
 
-        (define-key map (kbd "C-}") 'shrink-window-to-left)
+        (define-key map (kbd "C-}") 'shrink-window-to-right)
 
-        (define-key map (kbd "C-{") 'shrink-window-to-right)
+        (define-key map (kbd "C-{") 'shrink-window-to-left)
 
         map))
 
