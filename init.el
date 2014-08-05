@@ -1,4 +1,4 @@
-(setq-default indent-tabs-mode nil
+(setq-default ; indent-tabs-mode nil
 	      inhibit-startup-screen t
               completion-ignore-case t
               read-file-name-completion-ignore-case nil
@@ -88,16 +88,18 @@
                 ("\\.fs\\'" . glsl-mode))
               auto-mode-alist))
 
-(setq ff-search-directories 
-      '("." "../include" "../include/*" "../source" "../Include" "../Include/*" "../Source" "../src"))
+;; TODO find out how can we locate files outside current directory
+;; (setq ff-search-directories 
+;;       '("." "../include" "../include/*" "../source" "../Include" "../Include/*" "../Source" "../src"))
 
 (add-hook 'find-file-hook
           (lambda ()
             (auto-save-mode -1)))
 
+;; 
+;; Delete other windows before display special buffer
 (setq special-display-buffer-names
       '("*compilation*"))
-
 (setq special-display-function
       (lambda (buffer &optional args)
         (delete-other-windows)
@@ -171,7 +173,7 @@
            ))
     ) t)
 
-;; auto insert include guard into newly created CPP header
+;; auto insert include guard into newly created C header
 (define-auto-insert
   (cons "\\.\\([Hh]\\|hh\\|hpp\\)\\'" "Include guard")
   '(nil
@@ -182,17 +184,17 @@
               "#define " ident "\n\n\n"
               "#endif // " ident "\n"))))
 
-(defun get-some (xs)
+(defun first-non-nil (xs)
   (or (car xs)
       (get-some (cdr xs))))
 
-;; auto insert #include into newly created source CPP file
+;; auto insert #include into newly created C++ source file
 (define-auto-insert
   (cons "\\.\\([Cc]\\|cc\\|cpp\\)\\'" "Include header")
   '(nil
     (let* ((noext (substring buffer-file-name 0 (match-beginning 0)))
            (nopath (file-name-nondirectory noext))
-           (ident (get-some (mapcar (lambda (ext)
+           (ident (first-non-nil (mapcar (lambda (ext)
                                       (let ((filename (concat nopath ext)))
                                         (if (file-exists-p filename)
                                             filename
