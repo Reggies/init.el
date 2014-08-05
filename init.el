@@ -51,6 +51,7 @@
 
 (autoload 'glsl-mode "glsl-mode" nil t)
 (autoload 'yasnippet-mode "yasnippet" nil t)
+(autoload 'handy-keys-mode "handy-keys" nil t)
 
 (add-to-list 'load-path user-emacs-directory)
 
@@ -59,6 +60,7 @@
 
 (require 'yasnippet)
 (yas-global-mode 1)
+
 (auto-insert-mode t)
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
@@ -67,20 +69,10 @@
 (show-paren-mode t)
 (global-linum-mode t)
 
+(require 'handy-keys)
+(handy-keys-mode t)
+
 (load-theme 'tango-dark)
-
-(defun move-indent-or-beginning-of-line ()
-  "Jumps on the line indent and than on the beginning of line."
-  (interactive)
-  (handle-shift-selection)
-  (let ((old-point (point)))
-    (back-to-indentation)
-    (when (equal old-point (point))
-      (move-beginning-of-line 1))))
-
-(defun compile-current-dir ()
-  (interactive)
-  (compile "make -k"))
 
 (setq auto-mode-alist 
       (append '(("\\.h\\'" . c++-mode)
@@ -111,89 +103,6 @@
         (delete-other-windows)
         (split-window-right)
         (get-buffer-window buffer 0)))
-
-(defun toggle-truncate-lines ()
-  "Toggle truncate-lines value in current buffer"
-  (interactive)
-  (set (make-local-variable 'truncate-lines) 
-       (not truncate-lines)))
-
-(defun switch-to-header ()
-  "Find other file ignoring includes"
-  (interactive)
-  (ff-find-other-file nil t))
-
-(defun reload-init-file ()
-  "Just load configuration again"
-  (interactive)
-  (load-file "~/.emacs.d/init.el"))
-
-(defcustom shrink-delta 10 
-  "Used as DELTA in `shrink-window-horizontally'")
-
-(defun shrink-window-to-left ()
-  (interactive)
-  (shrink-window-horizontally (- shrink-delta)))
-
-(defun shrink-window-to-right ()
-  (interactive)
-  (shrink-window-horizontally shrink-delta))
-
-(defun upcase-char (n)
-  "Upcase forward character"
-  (interactive "p")
-  (upcase-region (point)
-                 (forward-point n))
-  (forward-char n))
-
-(defun downcase-char (n)
-  "Downcase forward character"
-  (interactive "p")
-  (downcase-region (point)
-                   (forward-point n))
-  (forward-char n))
-
-(setq handy-keys-mode-map 
-      (let ((map (make-sparse-keymap)))
-        ;; ff-find-other-file [in other buffer = nil] [ignore includes = t]
-        (define-key map (kbd "C-<f4>") 'switch-to-header)
-
-        (define-key map (kbd "C-<f5>") 'reload-init-file)
-
-        ;; ff-find-other-file [in other buffer = nil] [ignore includes = nil]
-        (define-key map (kbd "C-x C-o") 'ff-find-other-file)
-
-        (define-key map (kbd "C-x C-r") 'replace-string)
-
-        (define-key map (kbd "M-\"") 'insert-pair)
-        (define-key map (kbd "M-<") 'insert-pair)
-
-        (define-key map (kbd "C-;") 'upcase-char)
-        (define-key map (kbd "C-l") 'downcase-char)
-
-        (define-key map (kbd "C-a") 'move-indent-or-beginning-of-line)
-        (define-key map (kbd "<home>") 'move-indent-or-beginning-of-line)
-        (define-key map (kbd "M-p") 'backward-kill-word)
-
-        (define-key map (kbd "<f5>") 'compile-current-dir)
-
-        (define-key map (kbd "C-c C-t") 'toggle-truncate-lines)
-
-        (define-key map (kbd "<f12>") (lambda ()
-                                        (interactive)
-                                        (async-shell-command "./a.out")))
-
-        (define-key map (kbd "C-}") 'shrink-window-to-right)
-
-        (define-key map (kbd "C-{") 'shrink-window-to-left)
-
-        map))
-
-(define-minor-mode handy-keys-mode
-  "Handy keys for your emacs."
-  :lighter " Handy"
-  :keymap handy-keys-mode-map
-  :init-value t)
 
 ;;
 ;; Disable backup files for C++
