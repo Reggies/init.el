@@ -186,7 +186,7 @@
 
 (defun first-non-nil (xs)
   (or (car xs)
-      (get-some (cdr xs))))
+      (first-non-nil (cdr xs))))
 
 ;; auto insert #include into newly created C++ source file
 (define-auto-insert
