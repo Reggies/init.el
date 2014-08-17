@@ -1,6 +1,6 @@
 ;;; handy-keys.el --- It is Handy Keys mode which contains all my custom shortcuts
 
-;; Copyright (C) reggies 2014  
+;; Copyright (C) reggies 2014
 
 ;; Author:  reggies
 ;; Keywords: shortcuts
@@ -21,7 +21,7 @@
 (defun toggle-truncate-lines ()
   "Toggle truncate-lines value in current buffer"
   (interactive)
-  (set (make-local-variable 'truncate-lines) 
+  (set (make-local-variable 'truncate-lines)
        (not truncate-lines)))
 
 (defun switch-to-header ()
@@ -34,7 +34,7 @@
   (interactive)
   (load-file "~/.emacs.d/init.el"))
 
-(defcustom shrink-delta 10 
+(defcustom shrink-delta 10
   "Used as DELTA in `shrink-window-horizontally'")
 
 (defun shrink-window-to-left ()
@@ -78,7 +78,7 @@
   (interactive)
   (async-shell-command "./a.out"))
 
-(setq handy-keys-mode-map 
+(setq handy-keys-mode-map
       (let ((map (make-sparse-keymap)))
         ;;
         ;; ff-find-other-file [in other buffer = nil] [ignore includes = t]
@@ -100,7 +100,7 @@
         (define-key map (kbd "<f12>") 'async-shell-exec-default)
         (define-key map (kbd "C-}") 'shrink-window-to-right)
         (define-key map (kbd "C-{") 'shrink-window-to-left)
-        (define-key map (kbd "C-c C-d") 'delete-trailing-whitespace)
+        (define-key map (kbd "C-x C-<backspace>") 'delete-trailing-whitespace)
         map))
 
 (define-minor-mode handy-keys-mode
