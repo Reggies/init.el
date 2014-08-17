@@ -100,6 +100,7 @@
         (define-key map (kbd "<f12>") 'async-shell-exec-default)
         (define-key map (kbd "C-}") 'shrink-window-to-right)
         (define-key map (kbd "C-{") 'shrink-window-to-left)
+        (define-key map (kbd "C-c C-d") 'delete-trailing-whitespace)
         map))
 
 (define-minor-mode handy-keys-mode
