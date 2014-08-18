@@ -1,6 +1,8 @@
 # name: for(...; ...; ...) { ... }
 # key: for
+# binding: C-c C-2
 # --
-for(${1:int i = 0}; ${2:i < N}; ${3:++i}) {
+for(${1:init}; ${2:cond}; ${3:stmt}) {
+    `yas/selected-text`
     $0
 }
