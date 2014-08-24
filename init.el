@@ -54,6 +54,8 @@
 (show-paren-mode t)
 (global-linum-mode t)
 
+(electric-pair-mode t)
+
 (require 'handy-keys)
 (handy-keys-mode t)
 

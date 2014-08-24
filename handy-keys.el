@@ -83,13 +83,13 @@
         ;;
         ;; ff-find-other-file [in other buffer = nil] [ignore includes = t]
         (define-key map (kbd "C-<f4>") 'switch-to-header)
-        (define-key map (kbd "C-<f5>") 'reload-init-file)
+
         ;;
         ;; ff-find-other-file [in other buffer = nil] [ignore includes = nil]
         (define-key map (kbd "C-x C-o") 'ff-find-other-file)
+
+        (define-key map (kbd "C-<f5>") 'reload-init-file)
         (define-key map (kbd "C-x C-r") 'replace-string)
-        (define-key map (kbd "M-\"") 'insert-pair)
-        (define-key map (kbd "M-<") 'insert-pair)
         (define-key map (kbd "C-;") 'upcase-char)
         (define-key map (kbd "C-l") 'downcase-char)
         (define-key map (kbd "C-a") 'move-indent-or-beginning-of-line)
@@ -101,6 +101,9 @@
         (define-key map (kbd "C-}") 'shrink-window-to-right)
         (define-key map (kbd "C-{") 'shrink-window-to-left)
         (define-key map (kbd "C-x C-<backspace>") 'delete-trailing-whitespace)
+
+        (define-key map (kbd "<") 'insert-pair)
+        (define-key map (kbd "\"") 'insert-pair)
         map))
 
 (define-minor-mode handy-keys-mode
