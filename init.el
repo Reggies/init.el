@@ -13,10 +13,6 @@
               compilation-scroll-output t
               case-fold-search nil
 
-              default-frame-alist '((left-fringe . 5)
-                                    (right-fringe . 0)
-                                    (background-mode . 'dark))
-
               auto-insert-query nil
 
               ;; It should be done together
