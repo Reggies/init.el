@@ -15,8 +15,15 @@
 
               auto-insert-query nil
 
-              ;; It should be done together
-              initial-frame-alist '((cursor-type . box))
+              default-frame-alist '((vertical-scroll-bars . nil)
+                                    (tool-bar-lines . 0)
+                                    (menu-bar-lines . 0)
+                                    (left-fringe . 5)
+                                    (right-fringe . 0)
+                                    (background-mode . dark)
+                                    (fullscreen . nil)
+                                    (cursor-type . box))
+
               blink-cursor-alist '((box . hollow))
 
               tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80)
@@ -36,20 +43,13 @@
 (autoload 'yasnippet-mode "yasnippet" nil t)
 (autoload 'handy-keys-mode "handy-keys" nil t)
 
-(require 'fringe)
-(set-fringe-mode '(5 . 0))                     ;; left only fringes
-
 (require 'yasnippet)
 (yas-global-mode 1)
 
 (auto-insert-mode t)
-(menu-bar-mode -1)
-(scroll-bar-mode -1)
-(tool-bar-mode -1)
 (pending-delete-mode t)
 (show-paren-mode t)
 (global-linum-mode t)
-
 (electric-pair-mode t)
 
 (require 'handy-keys)
