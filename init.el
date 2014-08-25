@@ -32,12 +32,12 @@
               window-combination-resize t
               focus-follows-mouse t)
 
-;; (require 'package)
-;; (add-to-list 'package-archives 
-;;              '("melpa" . "http://melpa.milkybox.net/packages/") t)
-
 (add-to-list 'load-path user-emacs-directory)
 (load "cc-mode-tricks")
+
+(add-to-list 'load-path (concat user-emacs-directory "helm/"))
+(require 'helm-config)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
 
 (autoload 'glsl-mode "glsl-mode" nil t)
 (autoload 'yasnippet-mode "yasnippet" nil t)
@@ -49,8 +49,10 @@
 (auto-insert-mode t)
 (pending-delete-mode t)
 (show-paren-mode t)
-(global-linum-mode t)
 (electric-pair-mode t)
+
+(require 'linum)
+(global-linum-mode t)
 
 (require 'handy-keys)
 (handy-keys-mode t)
