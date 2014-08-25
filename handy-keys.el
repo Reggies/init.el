@@ -108,7 +108,7 @@
         (define-key map (kbd "C-{") 'shrink-window-to-left)
         (define-key map (kbd "C-x C-<backspace>") 'delete-trailing-whitespace)
 
-        (define-key map (kbd "<") 'insert-pair)
+        (define-key map (kbd "M-<") 'insert-pair)
         (define-key map (kbd "\"") 'insert-pair)
 
         (define-key map (kbd "C-<return>") 'abandon-line)
