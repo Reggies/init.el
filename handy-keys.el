@@ -78,6 +78,12 @@
   (interactive)
   (async-shell-command "./a.out"))
 
+(defun abandon-line ()
+  "Abandon current line then add new line and indent"
+  (interactive)
+  (move-end-of-line 1)
+  (newline-and-indent))
+
 (setq handy-keys-mode-map
       (let ((map (make-sparse-keymap)))
         ;;
@@ -104,6 +110,8 @@
 
         (define-key map (kbd "<") 'insert-pair)
         (define-key map (kbd "\"") 'insert-pair)
+
+        (define-key map (kbd "C-<return>") 'abandon-line)
         map))
 
 (define-minor-mode handy-keys-mode
