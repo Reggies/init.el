@@ -22,7 +22,8 @@
                                     (right-fringe . 0)
                                     (background-mode . dark)
                                     (fullscreen . nil)
-                                    (cursor-type . box))
+                                    (cursor-type . box)
+                                    (font . "Dejavu Sans Mono-10"))
 
               blink-cursor-alist '((box . hollow))
 
