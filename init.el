@@ -31,7 +31,11 @@
 
               ;; All we love xmonad
               window-combination-resize t
-              focus-follows-mouse t)
+              focus-follows-mouse t
+
+              windmove-wrap-around t)
+
+(windmove-default-keybindings 'meta)
 
 (add-to-list 'load-path user-emacs-directory)
 (load "cc-mode-tricks")
