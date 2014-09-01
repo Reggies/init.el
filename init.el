@@ -1,3 +1,5 @@
+(load-theme 'tango-dark)
+
 (setq-default indent-tabs-mode nil
 	      inhibit-startup-screen t
               completion-ignore-case t
@@ -44,26 +46,19 @@
 (require 'helm-config)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 
-(autoload 'glsl-mode "glsl-mode" nil t)
-(autoload 'yasnippet-mode "yasnippet" nil t)
+;;
+;; Custom keys
 (autoload 'handy-keys-mode "handy-keys" nil t)
-
-(require 'yasnippet)
-(yas-global-mode 1)
-
-(auto-insert-mode t)
-(pending-delete-mode t)
-(show-paren-mode t)
-(electric-pair-mode t)
-
-(require 'linum)
-(global-linum-mode t)
-
 (require 'handy-keys)
 (handy-keys-mode t)
 
-(load-theme 'tango-dark)
+(autoload 'yasnippet-mode "yasnippet" nil t)
+(require 'yasnippet)
+(yas-global-mode 1)
 
+;;
+;; Configure auto-mode for GLSL
+(autoload 'glsl-mode "glsl-mode" nil t)
 (setq auto-mode-alist
       (append '(("\\.vert\\'" . glsl-mode)
                 ("\\.vertex\\'" . glsl-mode)
@@ -75,13 +70,20 @@
                 ("\\.fs\\'" . glsl-mode))
               auto-mode-alist))
 
-;; TODO find out how can we locate files outside current directory
-;; (setq ff-search-directories
-;;       '("." "../include" "../include/*" "../source" "../Include" "../Include/*" "../Source" "../src"))
+(auto-insert-mode t)
+(pending-delete-mode t)
+(show-paren-mode t)
+(electric-pair-mode t)
 
-(add-hook 'find-file-hook
-          (lambda ()
-            (auto-save-mode -1)))
+(require 'linum)
+(global-linum-mode t)
+
+;;
+;; Placing all temporary files into /tmp
+(setq backup-directory-alist
+      `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
 
 ;;
 ;; Delete other windows before display special buffer
@@ -92,3 +94,7 @@
         (delete-other-windows)
         (split-window-right)
         (get-buffer-window buffer 0)))
+
+;; TODO find out how can we locate files outside current directory
+;; (setq ff-search-directories
+;;       '("." "../include" "../include/*" "../source" "../Include" "../Include/*" "../Source" "../src"))
