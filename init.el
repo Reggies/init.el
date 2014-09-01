@@ -64,7 +64,7 @@
 
 (load-theme 'tango-dark)
 
-(setq auto-mode-alist 
+(setq auto-mode-alist
       (append '(("\\.vert\\'" . glsl-mode)
                 ("\\.vertex\\'" . glsl-mode)
                 ("\\.frag\\'" . glsl-mode)
@@ -76,14 +76,14 @@
               auto-mode-alist))
 
 ;; TODO find out how can we locate files outside current directory
-;; (setq ff-search-directories 
+;; (setq ff-search-directories
 ;;       '("." "../include" "../include/*" "../source" "../Include" "../Include/*" "../Source" "../src"))
 
 (add-hook 'find-file-hook
           (lambda ()
             (auto-save-mode -1)))
 
-;; 
+;;
 ;; Delete other windows before display special buffer
 (setq special-display-buffer-names
       '("*compilation*"))
