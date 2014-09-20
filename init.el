@@ -88,7 +88,8 @@
 ;;
 ;; Delete other windows before display special buffer
 (setq special-display-buffer-names
-      '("*compilation*"))
+      '("*compilation*"
+        "*Helm Find Files*"))
 (setq special-display-function
       (lambda (buffer &optional args)
         (delete-other-windows)
