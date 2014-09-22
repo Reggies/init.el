@@ -102,6 +102,7 @@
         (define-key map (kbd "<home>") 'move-indent-or-beginning-of-line)
         (define-key map (kbd "M-p") 'backward-kill-word)
         (define-key map (kbd "<f5>") 'compile-current-dir)
+        (define-key map (kbd "<f9>") 'revert-buffer)
         (define-key map (kbd "C-c C-t") 'toggle-truncate-lines)
         (define-key map (kbd "<f12>") 'async-shell-exec-default)
         (define-key map (kbd "C-}") 'shrink-window-to-right)
