@@ -56,6 +56,8 @@
 (require 'yasnippet)
 (yas-global-mode 1)
 
+(scroll-bar-mode -1)
+
 ;;
 ;; Configure auto-mode for GLSL
 (autoload 'glsl-mode "glsl-mode" nil t)
