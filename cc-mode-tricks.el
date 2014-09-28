@@ -122,34 +122,40 @@
           ad-do-it)))                   ; default behavior
 
 ;; auto insert include guard into newly created C header
-(define-auto-insert
-  (cons "\\.\\([Hh]\\|hh\\|hpp\\)\\'" "Include guard")
-  '(nil
-    (let* ((noext (substring buffer-file-name 0 (match-beginning 0)))
-           (nopath (file-name-nondirectory noext))
-           (ident (concat (upcase nopath) "_H_")))
-      (concat "#ifndef " ident "\n"
-              "#define " ident "\n\n\n"
-              "#endif // " ident "\n"))))
+(defun add-include-guard ()
+  (add-to-list 'auto-insert-alist
+               '(("\\.\\([Hh]\\|hh\\|hpp\\)\\'" . "Include guard")
+                 nil
+                 (let* ((noext (substring buffer-file-name 0 (match-beginning 0)))
+                        (nopath (file-name-nondirectory noext))
+                        (ident (concat (upcase nopath) "_H_")))
+                   (concat "#ifndef " ident "\n"
+                           "#define " ident "\n\n\n"
+                           "#endif // " ident "\n")))))
+
+(add-hook 'c++-mode-hook 'add-include-guard)
 
 (defun first-non-nil (xs)
   (or (car xs)
       (first-non-nil (cdr xs))))
 
 ;; auto insert #include into newly created C++ source file
-(define-auto-insert
-  (cons "\\.\\([Cc]\\|cc\\|cpp\\)\\'" "Include header")
-  '(nil
-    (let* ((noext (substring buffer-file-name 0 (match-beginning 0)))
-           (nopath (file-name-nondirectory noext))
-           (ident (first-non-nil (mapcar (lambda (ext)
-                                      (let ((filename (concat nopath ext)))
-                                        (if (file-exists-p filename)
-                                            filename
-                                          nil)))
-                                    (list ".h" ".hpp")))))
-      (if (file-exists-p ident)
-          (concat "#include \"" ident "\"\n")))))
+(defun add-header-include ()
+  (add-to-list 'auto-insert-alist
+               '(("\\.\\([Cc]\\|cc\\|cpp\\)\\'" . "Include header")
+                 nil
+                 (let* ((noext (substring buffer-file-name 0 (match-beginning 0)))
+                        (nopath (file-name-nondirectory noext))
+                        (ident (first-non-nil (mapcar (lambda (ext)
+                                                        (let ((filename (concat nopath ext)))
+                                                          (if (file-exists-p filename)
+                                                              filename
+                                                            nil)))
+                                                      (list ".h" ".hpp")))))
+                   (if (file-exists-p ident)
+                       (concat "#include \"" ident "\"\n"))))))
+
+(add-hook 'c++-mode-hook 'add-header-include)
 
 (provide 'cc-mode-tricks)
 ;;; cc-mode-tricks.el ends here
