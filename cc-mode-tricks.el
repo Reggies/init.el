@@ -125,13 +125,14 @@
 (defun add-include-guard ()
   (add-to-list 'auto-insert-alist
                '(("\\.\\([Hh]\\|hh\\|hpp\\)\\'" . "Include guard")
-                 nil
-                 (let* ((noext (substring buffer-file-name 0 (match-beginning 0)))
-                        (nopath (file-name-nondirectory noext))
-                        (ident (concat (upcase nopath) "_H_")))
-                   (concat "#ifndef " ident "\n"
-                           "#define " ident "\n\n\n"
-                           "#endif // " ident "\n")))))
+                 (upcase
+                  (concat
+                   (file-name-nondirectory 
+                    (file-name-sans-extension buffer-file-name))
+                   "_"
+                   (file-name-extension buffer-file-name)
+                   "_"))
+                 "#ifndef " str n "#define " str "\n\n" _ "\n\n#endif // " str "\n")))
 
 (add-hook 'c++-mode-hook 'add-include-guard)
 
@@ -144,8 +145,8 @@
   (add-to-list 'auto-insert-alist
                '(("\\.\\([Cc]\\|cc\\|cpp\\)\\'" . "Include header")
                  nil
-                 (let* ((noext (substring buffer-file-name 0 (match-beginning 0)))
-                        (nopath (file-name-nondirectory noext))
+                 (let* ((nopath (file-name-nondirectory 
+                                 (file-name-sans-extension buffer-file-name)))
                         (ident (first-non-nil (mapcar (lambda (ext)
                                                         (let ((filename (concat nopath ext)))
                                                           (if (file-exists-p filename)
