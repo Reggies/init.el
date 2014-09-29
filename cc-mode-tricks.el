@@ -127,7 +127,7 @@
                '(("\\.\\([Hh]\\|hh\\|hpp\\)\\'" . "Include guard")
                  (upcase
                   (concat
-                   (file-name-nondirectory 
+                   (file-name-nondirectory
                     (file-name-sans-extension buffer-file-name))
                    "_"
                    (file-name-extension buffer-file-name)
@@ -136,23 +136,16 @@
 
 (add-hook 'c++-mode-hook 'add-include-guard)
 
-(defun first-non-nil (xs)
-  (or (car xs)
-      (first-non-nil (cdr xs))))
-
 ;; auto insert #include into newly created C++ source file
 (defun add-header-include ()
   (add-to-list 'auto-insert-alist
-               '(("\\.\\([Cc]\\|cc\\|cpp\\)\\'" . "Include header")
+               '(("\\.\\(cpp\\|[Cc]\\|cc\\)\\'" . "Include header")
                  nil
-                 (let* ((nopath (file-name-nondirectory 
-                                 (file-name-sans-extension buffer-file-name)))
-                        (ident (first-non-nil (mapcar (lambda (ext)
-                                                        (let ((filename (concat nopath ext)))
-                                                          (if (file-exists-p filename)
-                                                              filename
-                                                            nil)))
-                                                      (list ".h" ".hpp")))))
+                 (let* ((stem (file-name-sans-extension buffer-file-name))
+                        (ident
+                         (cond
+                          ((file-exists-p (concat stem ".hpp")) (concat (file-name-nondirectory stem) ".hpp"))
+                          ((file-exists-p (concat stem ".h")) (concat (file-name-nondirectory stem) ".h")))))
                    (if (file-exists-p ident)
                        (concat "#include \"" ident "\"\n"))))))
 
