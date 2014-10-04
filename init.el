@@ -42,6 +42,8 @@
 
               windmove-wrap-around t)
 
+(fset 'yes-or-no-p 'y-or-n-p)
+
 (windmove-default-keybindings 'meta)
 
 (add-to-list 'load-path user-emacs-directory)
