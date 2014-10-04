@@ -34,6 +34,8 @@
               ;; prevent <menu-bar> <file> <exit-emacs> from popup dialogs
               use-dialog-box nil
 
+              confirm-kill-emacs nil
+
               ;; All we love xmonad
               window-combination-resize t
               focus-follows-mouse t
