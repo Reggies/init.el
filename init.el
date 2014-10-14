@@ -65,6 +65,10 @@
 
 (scroll-bar-mode -1)
 
+(require 'hippie)
+(global-set-key (kbd "M-/") 'hippie-expand)
+(add-to-list 'hippie-expand-try-functions-list 'try-expand-flexible-abbrev)
+
 ;;
 ;; Configure auto-mode for GLSL
 (autoload 'glsl-mode "glsl-mode" nil t)
