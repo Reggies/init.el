@@ -46,7 +46,7 @@
 
 (windmove-default-keybindings 'meta)
 
-(add-to-list 'load-path user-emacs-directory)
+(add-to-list 'load-path (concat user-emacs-directory "local/"))
 (load "cc-mode-tricks")
 
 (add-to-list 'load-path (concat user-emacs-directory "helm/"))
