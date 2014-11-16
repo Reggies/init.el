@@ -146,7 +146,7 @@
                          (cond
                           ((file-exists-p (concat stem ".hpp")) (concat (file-name-nondirectory stem) ".hpp"))
                           ((file-exists-p (concat stem ".h")) (concat (file-name-nondirectory stem) ".h")))))
-                   (if (file-exists-p ident)
+                   (if (and ident (file-exists-p ident))
                        (concat "#include \"" ident "\"\n"))))))
 
 (add-hook 'c++-mode-hook 'add-header-include)
