@@ -1,4 +1,4 @@
-(load-theme 'tango-dark)
+(load-theme 'tango)
 
 (setq-default indent-tabs-mode nil
 	      inhibit-startup-screen t
@@ -44,14 +44,8 @@
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
-(windmove-default-keybindings 'meta)
-
 (add-to-list 'load-path (concat user-emacs-directory "local.el/"))
 (load "cc-mode-tricks")
-
-(add-to-list 'load-path (concat user-emacs-directory "helm/"))
-(require 'helm-config)
-(global-set-key (kbd "C-x C-f") 'helm-find-files)
 
 ;;
 ;; Custom keys
