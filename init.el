@@ -12,7 +12,6 @@
               backward-delete-char-untabify-method 'hungry
               mark-even-if-inactive nil
               truncate-lines nil
-              compilation-scroll-output t
               case-fold-search nil
 
               auto-insert-query nil
@@ -45,12 +44,14 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 (add-to-list 'load-path (concat user-emacs-directory "local.el/"))
-(load "cc-mode-tricks")
 
 (load "google-c-style")
 (require 'google-c-style)
 (add-hook 'c-mode-common-hook 'google-set-c-style)
 
+(load "cc-mode-tricks")
+(add-hook 'c-mode-common-hook (lambda ()
+                                (c-set-style "awk")))
 
 ;;
 ;; Custom keys
