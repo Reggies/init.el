@@ -137,7 +137,7 @@ Suitable for inclusion in `c-offsets-alist'."
   (interactive)
   (make-local-variable 'c-tab-always-indent)
   (setq c-tab-always-indent t)
-  (c-add-style "Google" google-c-style t))
+  (c-add-style "Google" google-c-style nil))
 
 ;;;###autoload
 (defun google-make-newline-indent ()
