@@ -112,3 +112,5 @@
 ;; TODO find out how can we locate files outside current directory
 ;; (setq ff-search-directories
 ;;       '("." "../include" "../include/*" "../source" "../Include" "../Include/*" "../Source" "../src"))
+
+(put 'downcase-region 'disabled nil)
