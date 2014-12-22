@@ -54,6 +54,13 @@ string).  It returns t if a new completion is found, nil otherwise."
          (setq he-expand-list (cdr he-expand-list))
          t)))
 
+(defun he-thing-before-point (thing)
+  "Like (thing-at-point 'word) but truncate also thing to (point)"
+  (let* ((bounds (bounds-of-thing-at-point thing))
+         (left (car bounds))
+         (right (cdr bounds)))
+  (buffer-substring-no-properties left (min (point) right))))
+               
 (defun he-flexible-abbrev-collect (str)
   "Find and collect all words that flex-matches STR.
 See docstring for `try-expand-flexible-abbrev' for information
@@ -65,7 +72,7 @@ about what flexible matching means in this context."
       (while (search-forward-regexp regexp nil t)
         ;; Is there a better or quicker way than using
         ;; `thing-at-point' here?
-        (setq collection (cons (thing-at-point 'word) collection))))
+        (setq collection (cons (he-thing-before-point 'word) collection))))
     collection))
 
 (defun he-flexible-abbrev-create-regexp (str)
