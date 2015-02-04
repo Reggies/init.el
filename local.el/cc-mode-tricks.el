@@ -132,7 +132,7 @@
                    "_"
                    (file-name-extension buffer-file-name)
                    "_"))
-                 "#ifndef " str n "#define " str "\n\n" _ "\n\n#endif // " str "\n")))
+                 "#ifndef " str n "#define " str "\n\n" _ "\n\n#endif\n")))
 
 (add-hook 'c++-mode-hook 'add-include-guard)
 
