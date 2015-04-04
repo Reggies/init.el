@@ -109,6 +109,15 @@
         (split-window-right)
         (get-buffer-window buffer 0)))
 
+;; An attempt to speedup kmacro-call-macro by disabling font-lock-mode
+(advice-add 'kmacro-call-macro :around
+            (lambda (orig &rest args)
+              (progn
+                (font-lock-mode -1)
+                (ignore-errors
+                  (apply orig args))
+                (font-lock-mode 1))))
+
 ;; TODO find out how can we locate files outside current directory
 ;; (setq ff-search-directories
 ;;       '("." "../include" "../include/*" "../source" "../Include" "../Include/*" "../Source" "../src"))
