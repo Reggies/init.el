@@ -114,3 +114,4 @@
 ;;       '("." "../include" "../include/*" "../source" "../Include" "../Include/*" "../Source" "../src"))
 
 (put 'downcase-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
