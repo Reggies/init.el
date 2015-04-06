@@ -1,4 +1,4 @@
-(load-theme 'tango)
+(load-theme 'tango-dark)
 
 (setq-default indent-tabs-mode nil
 	      inhibit-startup-screen t
