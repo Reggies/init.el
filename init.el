@@ -13,7 +13,7 @@
               mark-even-if-inactive nil
               truncate-lines nil
               case-fold-search nil
-
+              tab-width 4
               auto-insert-query nil
 
               default-frame-alist '((vertical-scroll-bars . nil)
