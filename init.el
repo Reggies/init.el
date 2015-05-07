@@ -1,7 +1,7 @@
 (load-theme 'tango-dark)
 
 (setq-default indent-tabs-mode nil
-	      inhibit-startup-screen t
+              inhibit-startup-screen t
               completion-ignore-case t
               read-file-name-completion-ignore-case nil
               column-number-mode t
@@ -50,8 +50,6 @@
 (add-hook 'c-mode-common-hook 'google-set-c-style)
 
 (load "cc-mode-tricks")
-(add-hook 'c-mode-common-hook (lambda ()
-                                (c-set-style "awk")))
 
 ;;
 ;; Custom keys
@@ -111,13 +109,13 @@
 
 ;; An attempt to speedup kmacro-call-macro by disabling font-lock-mode
 (when (fboundp 'advice-add)
-    (advice-add 'kmacro-call-macro :around 
-                (lambda (orig &rest args)
-                  (progn
-                    (font-lock-mode -1)
-                    (ignore-errors
-                      (apply orig args))
-                    (font-lock-mode 1)))))
+  (advice-add 'kmacro-call-macro :around 
+              (lambda (orig &rest args)
+                (progn
+                  (font-lock-mode -1)
+                  (ignore-errors
+                    (apply orig args))
+                  (font-lock-mode 1)))))
 
 ;; TODO find out how can we locate files outside current directory
 ;; (setq ff-search-directories
