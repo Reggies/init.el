@@ -70,7 +70,7 @@
 ;;
 ;; Configure auto-mode for markdown
 (require 'markdown-mode)
-(setq auto-mode-alist (append '(("\\.md\\'" . markdown-mode)) auto-mode-alist))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
 (scroll-bar-mode -1)
 
