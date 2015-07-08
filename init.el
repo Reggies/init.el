@@ -57,9 +57,20 @@
 (require 'handy-keys)
 (handy-keys-mode t)
 
+;;
+;; yasnippet
 (autoload 'yasnippet-mode "yasnippet" nil t)
 (require 'yasnippet)
 (yas-global-mode 1)
+
+;;
+;; markdown mode
+(autoload 'markdown-mode "markdown-mode" nil t)
+
+;;
+;; Configure auto-mode for markdown
+(require 'markdown-mode)
+(setq auto-mode-alist (append '(("\\.md\\'" . markdown-mode)) auto-mode-alist))
 
 (scroll-bar-mode -1)
 
