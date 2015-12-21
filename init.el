@@ -24,7 +24,8 @@
                                     (background-mode . dark)
                                     (fullscreen . nil)
                                     (cursor-type . box)
-                                    (font . "Dejavu Sans Mono-10"))
+                                    (font . "Monospace-10")
+                                    )
 
               blink-cursor-alist '((box . hollow))
 
@@ -73,6 +74,10 @@
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
 (scroll-bar-mode -1)
+
+;;
+;; Qt project files
+(add-to-list 'auto-mode-alist '("\\.pro\\'" . text-mode))
 
 (require 'hippie)
 (global-set-key (kbd "M-/") 'hippie-expand)
