@@ -68,16 +68,6 @@
     (when (equal old-point (point))
       (move-beginning-of-line 1))))
 
-(defun compile-current-dir ()
-  "This function just invokes make on current dir"
-  (interactive)
-  (compile "make -k"))
-
-(defun async-shell-exec-default ()
-  "Asynchronously execute gcc default output executable"
-  (interactive)
-  (async-shell-command "./a.out"))
-
 (defun abandon-line ()
   "Abandon current line then add new line and indent"
   (interactive)
@@ -101,16 +91,14 @@
         (define-key map (kbd "C-a") 'move-indent-or-beginning-of-line)
         (define-key map (kbd "<home>") 'move-indent-or-beginning-of-line)
         (define-key map (kbd "M-p") 'backward-kill-word)
-        (define-key map (kbd "<f5>") 'compile-current-dir)
         (define-key map (kbd "<f9>") 'revert-buffer)
         (define-key map (kbd "C-c C-t") 'toggle-truncate-lines)
-        (define-key map (kbd "<f12>") 'async-shell-exec-default)
         (define-key map (kbd "C-}") 'shrink-window-to-right)
         (define-key map (kbd "C-{") 'shrink-window-to-left)
         (define-key map (kbd "C-x C-<backspace>") 'delete-trailing-whitespace)
 
         (define-key map (kbd "M-<") 'insert-pair)
-        (define-key map (kbd "\"") 'insert-pair)
+        (define-key map (kbd "M-\"") 'insert-pair)
 
         (define-key map (kbd "C-<return>") 'abandon-line)
         map))

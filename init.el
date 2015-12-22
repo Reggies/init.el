@@ -46,10 +46,18 @@
 
 (add-to-list 'load-path (concat user-emacs-directory "local.el/"))
 
+(scroll-bar-mode -1)
+
 (load "google-c-style")
 (require 'google-c-style)
 (add-hook 'c-mode-common-hook 'google-set-c-style)
 
+;;
+;; Python!
+(load "py-mode-tricks")
+
+;;
+;; CC mode
 (load "cc-mode-tricks")
 
 ;;
@@ -72,8 +80,6 @@
 ;; Configure auto-mode for markdown
 (require 'markdown-mode)
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-
-(scroll-bar-mode -1)
 
 ;;
 ;; Qt project files
