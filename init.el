@@ -82,8 +82,11 @@
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
 ;;
-;; Qt project files
-(add-to-list 'auto-mode-alist '("\\.pro\\'" . text-mode))
+;; Qt
+(setq auto-mode-alist
+      (append '(("\\.pro\\'" . text-mode)
+                ("\\.qrc\\'" . xml-mode))
+              auto-mode-alist))
 
 ;;
 ;; Octave
