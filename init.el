@@ -45,12 +45,17 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 (add-to-list 'load-path (concat user-emacs-directory "local.el/"))
+(add-to-list 'load-path (concat user-emacs-directory "dockerfile-mode/"))
 
 (scroll-bar-mode -1)
 
 (load "google-c-style")
 (require 'google-c-style)
 (add-hook 'c-mode-common-hook 'google-set-c-style)
+
+;; Docker
+(require 'dockerfile-mode)
+(add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
 
 ;;
 ;; Python!
