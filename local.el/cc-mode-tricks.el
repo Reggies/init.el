@@ -32,7 +32,8 @@
                                     ("\\.c$" (".h"))
                                     ("\\.hpp$" (".cpp" ".c" ".cc" ".C" ".h"))
                                     ("\\.h$" (".cpp" ".c" ".cc" ".C" ".CC" ".cxx" ".hpp"))
-                                    ("\\.cpp$" (".h" ".hpp"))))
+                                    ("\\.cpp$" (".h" ".hpp"))
+                                    ("\\.cxx$" (".hpp" ".h"))))
 
 (setq auto-mode-alist
       (append '(("\\.inl\\'" . c++-mode)
