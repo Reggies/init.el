@@ -60,6 +60,9 @@
 (require 'dockerfile-mode)
 (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
 
+;; CMake
+(require 'cmake-mode)
+
 ;;
 ;; Python!
 (load "py-mode-tricks")
