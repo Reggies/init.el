@@ -23,9 +23,7 @@
                                     (right-fringe . 0)
                                     (background-mode . dark)
                                     (fullscreen . nil)
-                                    (cursor-type . box)
-                                    (font . "Monospace-10")
-                                    )
+                                    (cursor-type . box))
 
               blink-cursor-alist '((box . hollow))
 
@@ -41,6 +39,11 @@
               focus-follows-mouse t
 
               windmove-wrap-around t)
+
+;; Windows workaroudn
+(if (eq system-type 'gnu/linux)
+    (setq-default default-frame-alist
+                  (cons '(font . "Monospace-10") default-frame-alist)))
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
