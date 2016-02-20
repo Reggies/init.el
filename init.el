@@ -63,6 +63,9 @@
 ;; CMake
 (require 'cmake-mode)
 
+(require 'qml-mode)
+(add-to-list 'auto-mode-alist '("\\.qml\\'" . qml-mode))
+
 ;;
 ;; Python!
 (load "py-mode-tricks")
