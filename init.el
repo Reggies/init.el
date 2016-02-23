@@ -40,7 +40,7 @@
 
               windmove-wrap-around t)
 
-;; Windows workaroudn
+;; Windows workaround
 (if (eq system-type 'gnu/linux)
     (setq-default default-frame-alist
                   (cons '(font . "Monospace-10") default-frame-alist)))
