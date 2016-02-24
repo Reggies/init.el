@@ -394,12 +394,6 @@ and store the result as a list in LISTVAR."
               ))))))
   )
 
-;;;###autoload
-(progn
-  (add-to-list 'auto-mode-alist '("CMakeLists\\.txt\\'" . cmake-mode))
-  (add-to-list 'auto-mode-alist '("\\.cmake\\'" . cmake-mode))
-  (add-to-list 'auto-mode-alist '("CMakeCache\\.txt\\'" . cmake-mode)))
-
 ; This file provides cmake-mode.
 (provide 'cmake-mode)
 

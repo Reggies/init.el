@@ -52,19 +52,23 @@
 
 (scroll-bar-mode -1)
 
+;; Google C/C++ source code style
 (load "google-c-style")
-(require 'google-c-style)
 (add-hook 'c-mode-common-hook 'google-set-c-style)
 
-;; Docker
-(require 'dockerfile-mode)
+;; Dockerfile
+(autoload 'dockerfile-mode "dockerfile-mode" nil t)
 (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
 
 ;; CMake
-(require 'cmake-mode)
+(autoload 'cmake-mode "cmake-mode" nil t)
+(add-to-list 'auto-mode-alist '("CMakeLists\\.txt\\'" . cmake-mode))
+(add-to-list 'auto-mode-alist '("\\.cmake\\'" . cmake-mode))
+(add-to-list 'auto-mode-alist '("CMakeCache\\.txt\\'" . cmake-mode))
 
-(require 'qml-mode)
-(add-to-list 'auto-mode-alist '("\\.qml\\'" . qml-mode))
+(autoload 'applescript-mode "applescript-mode"
+  "Major mode for editing AppleScript source." t)
+(add-to-list 'auto-mode-alist '("\\.applescript$" . applescript-mode))
 
 ;;
 ;; Python!
@@ -76,27 +80,24 @@
 
 ;;
 ;; Custom keys
-(autoload 'handy-keys-mode "handy-keys" nil t)
-(require 'handy-keys)
+(load "handy-keys-mode")
 (handy-keys-mode t)
 
 ;;
 ;; yasnippet
-(autoload 'yasnippet-mode "yasnippet" nil t)
-(require 'yasnippet)
-(yas-global-mode 1)
+;; TBD: too sloww
+;; (load "yasnippet")
+;; (yas-global-mode 1)
 
 ;;
-;; markdown mode
+;; Markdown mode
 (autoload 'markdown-mode "markdown-mode" nil t)
-
-;;
-;; Configure auto-mode for markdown
-(require 'markdown-mode)
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
 ;;
 ;; Qt
+(autoload 'qml-mode "qml-mode" "Major mode for Qt QML." t)
+(add-to-list 'auto-mode-alist '("\\.qml\\'" . qml-mode))
 (setq auto-mode-alist
       (append '(("\\.pro\\'" . text-mode)
                 ("\\.qrc\\'" . xml-mode))
