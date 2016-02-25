@@ -122,7 +122,9 @@
                 ("\\.geom\\'" . glsl-mode)
                 ("\\.gs\\'" . glsl-mode)
                 ("\\.vs\\'" . glsl-mode)
-                ("\\.fs\\'" . glsl-mode))
+                ("\\.fs\\'" . glsl-mode)
+                ("\\.tes\\'" . glsl-mode)
+                ("\\.tcs\\'" . glsl-mode))
               auto-mode-alist))
 
 (auto-insert-mode t)
