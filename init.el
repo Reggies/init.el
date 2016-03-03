@@ -49,6 +49,7 @@
 
 (add-to-list 'load-path (concat user-emacs-directory "local.el/"))
 (add-to-list 'load-path (concat user-emacs-directory "dockerfile-mode/"))
+(add-to-list 'load-path (concat user-emacs-directory "protobuf-mode/"))
 
 (scroll-bar-mode -1)
 
@@ -59,6 +60,10 @@
 ;; Dockerfile
 (autoload 'dockerfile-mode "dockerfile-mode" nil t)
 (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
+
+;; Protobuf
+(autoload 'protobuf-mode "protobuf-mode" nil nil)
+(add-to-list 'auto-mode-alist '("\\.proto\\'" . protobuf-mode))
 
 ;; CMake
 (autoload 'cmake-mode "cmake-mode" nil t)
