@@ -109,6 +109,10 @@
               auto-mode-alist))
 
 ;;
+;; Treat doxyfile as config file
+(add-to-list 'auto-mode-alist '("Doxyfile\\'" . conf-mode))
+
+;;
 ;; Octave
 (add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
 
