@@ -120,6 +120,9 @@
 (global-set-key (kbd "M-/") 'hippie-expand)
 (add-to-list 'hippie-expand-try-functions-list 'try-expand-flexible-abbrev)
 
+(add-to-list 'load-path (concat user-emacs-directory "erlware-mode/"))
+(require 'erlang-start)
+
 ;;
 ;; Configure auto-mode for GLSL
 (autoload 'glsl-mode "glsl-mode" nil t)

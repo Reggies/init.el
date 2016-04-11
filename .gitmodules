@@ -1,0 +1,3 @@
+[submodule "erlware-mode"]
+	path = erlware-mode
+	url = https://github.com/erlware-deprecated/erlware-mode
