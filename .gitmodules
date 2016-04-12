@@ -1,3 +1,6 @@
 [submodule "erlware-mode"]
 	path = erlware-mode
 	url = https://github.com/erlware-deprecated/erlware-mode
+[submodule "protobuf-mode"]
+	path = protobuf-mode
+	url = https://github.com/emacsmirror/protobuf-mode
