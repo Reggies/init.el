@@ -4,3 +4,6 @@
 [submodule "protobuf-mode"]
 	path = protobuf-mode
 	url = https://github.com/emacsmirror/protobuf-mode
+[submodule "dockerfile-mode"]
+	path = dockerfile-mode
+	url = https://github.com/spotify/dockerfile-mode
