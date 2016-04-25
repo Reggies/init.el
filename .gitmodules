@@ -7,3 +7,6 @@
 [submodule "dockerfile-mode"]
 	path = dockerfile-mode
 	url = https://github.com/spotify/dockerfile-mode
+[submodule "lua-mode"]
+	path = lua-mode
+	url = https://github.com/immerrr/lua-mode

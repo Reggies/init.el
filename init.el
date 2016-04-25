@@ -48,19 +48,19 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 (scroll-bar-mode -1)
 
-(add-to-list 'load-path (concat user-emacs-directory "local.el/"))
+(add-to-list 'load-path (concat user-emacs-directory "custom"))
 
 ;; Google C/C++ source code style
 (load "google-c-style")
 (add-hook 'c-mode-common-hook 'google-set-c-style)
 
 ;; Dockerfile
-(add-to-list 'load-path (concat user-emacs-directory "dockerfile-mode/"))
+(add-to-list 'load-path (concat user-emacs-directory "dockerfile-mode"))
 (autoload 'dockerfile-mode "dockerfile-mode" nil t)
 (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
 
 ;; Protobuf
-(add-to-list 'load-path (concat user-emacs-directory "protobuf-mode/"))
+(add-to-list 'load-path (concat user-emacs-directory "protobuf-mode"))
 (autoload 'protobuf-mode "protobuf-mode" nil nil)
 (add-to-list 'auto-mode-alist '("\\.proto\\'" . protobuf-mode))
 
@@ -73,6 +73,12 @@
 (autoload 'applescript-mode "applescript-mode"
   "Major mode for editing AppleScript source." t)
 (add-to-list 'auto-mode-alist '("\\.applescript$" . applescript-mode))
+
+;; Lua!
+(add-to-list 'load-path (concat user-emacs-directory "lua-mode"))
+(autoload 'lua-mode "lua-mode" "Lua editing mode." t)
+(add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
+(add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
 
 ;;
 ;; Python!
