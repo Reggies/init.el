@@ -46,22 +46,21 @@
                   (cons '(font . "Monospace-10") default-frame-alist)))
 
 (fset 'yes-or-no-p 'y-or-n-p)
+(scroll-bar-mode -1)
 
 (add-to-list 'load-path (concat user-emacs-directory "local.el/"))
-(add-to-list 'load-path (concat user-emacs-directory "dockerfile-mode/"))
-(add-to-list 'load-path (concat user-emacs-directory "protobuf-mode/"))
-
-(scroll-bar-mode -1)
 
 ;; Google C/C++ source code style
 (load "google-c-style")
 (add-hook 'c-mode-common-hook 'google-set-c-style)
 
 ;; Dockerfile
+(add-to-list 'load-path (concat user-emacs-directory "dockerfile-mode/"))
 (autoload 'dockerfile-mode "dockerfile-mode" nil t)
 (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
 
 ;; Protobuf
+(add-to-list 'load-path (concat user-emacs-directory "protobuf-mode/"))
 (autoload 'protobuf-mode "protobuf-mode" nil nil)
 (add-to-list 'auto-mode-alist '("\\.proto\\'" . protobuf-mode))
 
