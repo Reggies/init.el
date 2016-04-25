@@ -1,8 +1,0 @@
-# name: namespace ...
-# key: ns
-# binding: C-c C-1
-# --
-namespace ${1:name}
-{
-    $0`yas-selected-text`
-}

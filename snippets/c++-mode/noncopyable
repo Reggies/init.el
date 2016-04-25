@@ -1,5 +1,0 @@
-# name: Class (const Class &) = delete;
-# key: noncopyable
-# --
-${1:Class}(const $1&) = delete;
-$1& operator=(const $1&) = delete;

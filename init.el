@@ -94,12 +94,6 @@
 (handy-keys-mode t)
 
 ;;
-;; yasnippet
-;; TBD: too sloww
-;; (load "yasnippet")
-;; (yas-global-mode 1)
-
-;;
 ;; Markdown mode
 (autoload 'markdown-mode "markdown-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))

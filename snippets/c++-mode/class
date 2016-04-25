@@ -1,9 +1,0 @@
-# name: class ... { ... }
-# key: class
-# --
-class ${1:Test}
-{
-public:
-    explicit ${1:$(yas-substr yas-text "[A-Za-z0-9]*")}($2);
-    virtual ~${1:$(yas-substr yas-text "[A-Za-z0-9]*")}();
-};
