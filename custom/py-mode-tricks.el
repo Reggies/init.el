@@ -1,8 +1,8 @@
 ;;; py-mode-tricks.el --- Python!                    -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2015  Natalin Alexey
+;; Copyright (C) 2015  Alexey Natalin
 
-;; Author: Natalin Alexey <natalin@natalin-desktop>
+;; Author: Alexey Natalin <mrreggies@gmail.com>
 ;; Keywords: 
 
 ;; This program is free software; you can redistribute it and/or modify

@@ -1,8 +1,8 @@
 ;;; handy-keys.el --- It is Handy Keys mode which contains all my custom shortcuts
 
-;; Copyright (C) reggies 2014
+;; Copyright (C) 2014  Alexey Natalin
 
-;; Author:  reggies
+;; Author:  Alexey Natalin <mrreggies@gmail.com>
 ;; Keywords: shortcuts
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -17,6 +17,12 @@
 
 ;; You should have received a copy of the GNU General Public License
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+;;; Commentary:
+
+;; minor mode for handy keys
+
+;;; Code:
 
 (defun toggle-truncate-lines ()
   "Toggle truncate-lines value in current buffer"

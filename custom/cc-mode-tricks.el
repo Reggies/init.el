@@ -1,8 +1,8 @@
-;;; cc-mode-tricks.el --- C++11, hacks, keys, customizations.
+;;; cc-mode-tricks.el --- Hacks, keys, customizations.
 
-;; Copyright (C) 2014
+;; Copyright (C) 2014  Alexey Natalin
 
-;; Author:  <reggies@debian>
+;; Author:  Alexey Natalin <mrreggies@gmail.com>
 ;; Keywords: languages
 
 ;; This program is free software; you can redistribute it and/or modify
