@@ -88,6 +88,7 @@
 ;;
 ;; CC mode
 (load "cc-mode-tricks")
+(load "c++11-hacks")
 
 ;;
 ;; Custom keys
