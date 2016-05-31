@@ -55,12 +55,13 @@
 (add-hook 'c-mode-common-hook 'google-set-c-style)
 
 ;; Dockerfile
-(add-to-list 'load-path (concat user-emacs-directory "dockerfile-mode"))
+(add-to-list 'load-path (concat user-emacs-directory "dockerfile-mode/"))
 (autoload 'dockerfile-mode "dockerfile-mode" nil t)
 (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
 
 ;; Protobuf
-(add-to-list 'load-path (concat user-emacs-directory "protobuf-mode"))
+(require 'cl)
+(add-to-list 'load-path (concat user-emacs-directory "protobuf-mode/"))
 (autoload 'protobuf-mode "protobuf-mode" nil nil)
 (add-to-list 'auto-mode-alist '("\\.proto\\'" . protobuf-mode))
 
@@ -75,7 +76,7 @@
 (add-to-list 'auto-mode-alist '("\\.applescript$" . applescript-mode))
 
 ;; Lua!
-(add-to-list 'load-path (concat user-emacs-directory "lua-mode"))
+(add-to-list 'load-path (concat user-emacs-directory "lua-mode/"))
 (autoload 'lua-mode "lua-mode" "Lua editing mode." t)
 (add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
 (add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
