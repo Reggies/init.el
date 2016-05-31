@@ -117,6 +117,10 @@
 ;; Octave
 (add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
 
+;;
+;; org-mode for TOOD files
+(add-to-list 'auto-mode-alist '("TODO\\'" . org-mode))
+
 (require 'hippie)
 (global-set-key (kbd "M-/") 'hippie-expand)
 (add-to-list 'hippie-expand-try-functions-list 'try-expand-flexible-abbrev)
