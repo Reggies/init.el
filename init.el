@@ -67,6 +67,9 @@
 (autoload 'protobuf-mode "protobuf-mode" nil nil)
 (add-to-list 'auto-mode-alist '("\\.proto\\'" . protobuf-mode))
 
+;; Caffe
+(add-to-list 'auto-mode-alist '("\\.prototxt\\'" . javascript-mode))
+
 ;; CMake
 (autoload 'cmake-mode "cmake-mode" nil t)
 (add-to-list 'auto-mode-alist '("CMakeLists\\.txt\\'" . cmake-mode))
