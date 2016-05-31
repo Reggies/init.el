@@ -1,4 +1,6 @@
-(load-theme 'tango-dark)
+(add-to-list 'custom-theme-load-path (concat user-emacs-directory "seoul256.el"))
+
+(load-theme 'seoul256 t)
 
 (setq-default indent-tabs-mode nil
               inhibit-startup-screen t

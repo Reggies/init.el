@@ -10,3 +10,6 @@
 [submodule "lua-mode"]
 	path = lua-mode
 	url = https://github.com/immerrr/lua-mode
+[submodule "seoul256.el"]
+	path = seoul256.el
+	url = https://github.com/ChrisDavison/seoul256.el
