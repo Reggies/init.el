@@ -28,68 +28,32 @@
 
 (defvar caffe-tab-width 2)
 
-(defconst caffe-re-function "^[ \t]*\\(\\w+\\)[ \t]*{")
-(defconst caffe-re-block (concat "\\(" caffe-re-function "\\)"))
-
-(defun caffe-get-beg-of-block ()
-  (save-excursion
-    (when (re-search-backward caffe-re-block nil t)
-      (match-beginning 2))))
-
-(defun caffe-get-end-of-block ()
-  (save-excursion
-    (when (re-search-backward caffe-re-block nil t)
-      (goto-char (match-end 0))
-      (backward-char)
-      (condition-case nil
-          (save-restriction
-            (forward-list)
-            (point))
-        (error nil)))))
-
 (defun caffe-indent ()
   (interactive)
-  (if (bobp)
-      (indent-line-to 0)
-    (let ((cur (point))
-          (start (caffe-get-beg-of-block))
-          (end (caffe-get-end-of-block))
-          (cur-indent nil))
-      (save-excursion
-        (if (not (and start end (> cur start) (< cur end)))
-            (progn
-              (if start
-                  (goto-char start))
-              (setq start (caffe-get-beg-of-block))
-              (setq end (caffe-get-end-of-block))
-              (while (and (not (eq start nil)) (not (eq end nil)) (not (and (> cur start) (< cur end))))
-                (goto-char start)
-                (setq start (caffe-get-beg-of-block))
-                (setq end (caffe-get-end-of-block)))
-              (if (or (eq start nil) (= (point) (point-min)))
-                  (progn
-                    (goto-char (point-min))
-                    (when (re-search-forward caffe-re-block nil t)
-                      (goto-char (match-beginning 2))
-                      (setq start (point))
-                      (goto-char (match-end 0))
-                      (backward-char)
-                      (condition-case nil
-                          (save-restriction
-                            (forward-list)
-                            (setq end (point))
-                            (setq cur-indent 0))
-                        (error nil)))))))
-        (if (not cur-indent)
-            (progn
-              (goto-char start)
-              (setq cur-indent (current-indentation))
-              (goto-char cur)
-              (unless (string= (string (char-after (- (point) 1))) "{")
-                (setq cur-indent (+ cur-indent caffe-tab-width))))))
-      (indent-line-to cur-indent)
-      (if (string= (string (char-after (point))) "}")
-          (indent-line-to (- cur-indent caffe-tab-width))))))
+  (save-excursion
+    (let ((here (point))
+          (depth 0))
+      (while (and (forward-line -1)
+                  (looking-at "^[ \t]*$")))
+      (cond ((looking-at "\\([ \t]*\\)\\([^ \t].*\\)?{[ \t]*$")
+             (setq depth (+ (- (match-end 1) (match-beginning 1))
+                            caffe-tab-width )))
+            ((looking-at "\\([ \t]*\\)[^ \t]")
+             (setq depth (- (match-end 1) (match-beginning 1))))
+            (t (setq depth 0)) )
+      (goto-char here)
+      (beginning-of-line)
+      (if (looking-at "[ \t]*}")
+          (setq depth (max (- depth caffe-tab-width) 0)))
+      (if (looking-at "\\([ \t]*\\)")
+          (if (= depth (- (match-end 1) (match-beginning 1)))
+              nil
+            (delete-region (match-beginning 1) (match-end 1))
+            (indent-to depth))
+        (if (> depth 0)
+            (indent-to depth)))))
+  (if (looking-at "[ \t]*")
+      (back-to-indentation)))
 
 (defvar caffe-mode-syntax-table
   (let ((table (make-syntax-table)))
