@@ -68,7 +68,8 @@
 (add-to-list 'auto-mode-alist '("\\.proto\\'" . protobuf-mode))
 
 ;; Caffe
-(add-to-list 'auto-mode-alist '("\\.prototxt\\'" . javascript-mode))
+(autoload 'caffe-mode "caffe-mode" "Major mode for Caffe" t)
+(add-to-list 'auto-mode-alist '("\\.prototxt\\'" . caffe-mode))
 
 ;; CMake
 (autoload 'cmake-mode "cmake-mode" nil t)
