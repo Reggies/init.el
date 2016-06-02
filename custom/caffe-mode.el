@@ -51,9 +51,7 @@
             (delete-region (match-beginning 1) (match-end 1))
             (indent-to depth))
         (if (> depth 0)
-            (indent-to depth)))))
-  (if (looking-at "[ \t]*")
-      (back-to-indentation)))
+            (indent-to depth))))))
 
 (defvar caffe-mode-syntax-table
   (let ((table (make-syntax-table)))
