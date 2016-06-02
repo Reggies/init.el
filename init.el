@@ -64,7 +64,7 @@
 ;; Protobuf
 (require 'cl)
 (add-to-list 'load-path (concat user-emacs-directory "protobuf-mode/"))
-(autoload 'protobuf-mode "protobuf-mode" nil nil)
+(autoload 'protobuf-mode "protobuf-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.proto\\'" . protobuf-mode))
 
 ;; Caffe
