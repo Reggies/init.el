@@ -13,3 +13,6 @@
 [submodule "seoul256.el"]
 	path = seoul256.el
 	url = https://github.com/ChrisDavison/seoul256.el
+[submodule "llvm-mode"]
+	path = llvm-mode
+	url = https://github.com/emacsmirror/llvm-mode

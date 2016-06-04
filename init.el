@@ -61,6 +61,13 @@
 (autoload 'dockerfile-mode "dockerfile-mode" nil t)
 (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
 
+;; LLVM-mode
+(add-to-list 'load-path (concat user-emacs-directory "llvm-mode/"))
+(autoload 'llvm-mode "llvm-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.ll\\'" . llvm-mode))
+(autoload 'tablegen-mode "tablegen-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.td\\'" . tablegen-mode))
+
 ;; Protobuf
 (require 'cl)
 (add-to-list 'load-path (concat user-emacs-directory "protobuf-mode/"))
