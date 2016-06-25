@@ -43,7 +43,7 @@
                       (or (looking-at "^\\s-*$")
                           (looking-at "^\\s-*#.*$")))
             (forward-line -1))
-          (cond ((looking-at "\\(\\s-*\\)\\w*\\s-*{\\s-*")
+          (cond ((looking-at "\\(\\s-*\\)\\w*\\s-*[:]?\\s-*{\\s-*")
                  (setq depth (+ (- (match-end 1)
                                    (match-beginning 1))
                                 caffe-tab-width)))
