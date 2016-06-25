@@ -24,7 +24,7 @@
 
 ;;; Code:
 
-(require 'js)
+(require 'cc-mode)
 
 (defvar caffe-tab-width 2)
 
