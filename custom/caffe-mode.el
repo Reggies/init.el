@@ -74,6 +74,7 @@
     ("\\<\\([A-Z]\\w*\\)\\>" . font-lock-constant-face)
     ))
 
+;;;###autoload
 (defun caffe-mode ()
   "Major mode used in `caffe-mode' buffers."
   (interactive)
