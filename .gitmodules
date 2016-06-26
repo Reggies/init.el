@@ -19,3 +19,6 @@
 [submodule "qml-mode"]
 	path = qml-mode
 	url = https://github.com/coldnew/qml-mode
+[submodule "caffe-mode"]
+	path = caffe-mode
+	url = https://bitbucket.org/reggies/caffe-mode
