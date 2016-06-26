@@ -113,10 +113,12 @@
 (autoload 'markdown-mode "markdown-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
-;;
-;; Qt
-(autoload 'qml-mode "qml-mode" "Major mode for Qt QML." t)
+;; QML
+(add-to-list 'load-path (concat user-emacs-directory "qml-mode/"))
+(autoload 'qml-mode "qml-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.qml\\'" . qml-mode))
+
+;; Qt
 (setq auto-mode-alist
       (append '(("\\.pro\\'" . text-mode)
                 ("\\.qrc\\'" . xml-mode))

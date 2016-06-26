@@ -16,3 +16,6 @@
 [submodule "llvm-mode"]
 	path = llvm-mode
 	url = https://github.com/emacsmirror/llvm-mode
+[submodule "qml-mode"]
+	path = qml-mode
+	url = https://github.com/coldnew/qml-mode
