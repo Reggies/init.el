@@ -20,7 +20,9 @@
 
 ;;; Commentary:
 
-;; Based on qml-mode
+;; Put this file in your load-path and the following into your init.el:
+;;  (autoload 'caffe-mode "caffe-mode" "Major mode for Caffe" t)
+;;  (add-to-list 'auto-mode-alist '("\\.prototxt\\'" . caffe-mode))
 
 ;;; Code:
 
