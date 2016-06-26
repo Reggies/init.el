@@ -67,7 +67,7 @@
 
 (defvar caffe-font-lock-keywords
   '(("#.*" . font-lock-comment-face)
-    ("\\(\\<\\w+\\>\\)[ \t\n]*{"
+    ("\\(\\<\\w+\\>\\)[ \t\n]*[:]?[ \t\n]*{"
      (1 font-lock-function-name-face nil t))
     ("\\<[\\-+]*[0-9]*\\.?[0-9]+\\([eE][-+]?[0-9]+\\)?\\f?\\>" . font-lock-constant-face)
     ("\\<\\(false\\|true\\)\\>" . font-lock-constant-face)
