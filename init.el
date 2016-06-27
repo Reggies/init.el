@@ -74,6 +74,11 @@
 (autoload 'protobuf-mode "protobuf-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.proto\\'" . protobuf-mode))
 
+;; Rust
+(add-to-list 'load-path (concat user-emacs-directory "rust-mode/"))
+(autoload 'rust-mode "rust-mode" "Major mode for Rust" t)
+(add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
+
 ;; Caffe
 (add-to-list 'load-path (concat user-emacs-directory "caffe-mode/"))
 (autoload 'caffe-mode "caffe-mode" "Major mode for Caffe" t)

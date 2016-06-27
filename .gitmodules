@@ -22,3 +22,6 @@
 [submodule "caffe-mode"]
 	path = caffe-mode
 	url = https://github.com/reggies/caffe-mode
+[submodule "rust-mode"]
+	path = rust-mode
+	url = https://github.com/rust-lang/rust-mode
