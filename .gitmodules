@@ -28,3 +28,6 @@
 [submodule "glsl-mode"]
 	path = glsl-mode
 	url = https://github.com/jimhourihan/glsl-mode
+[submodule "markdown-mode"]
+	path = markdown-mode
+	url = https://github.com/jrblevin/markdown-mode

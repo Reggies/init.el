@@ -116,6 +116,7 @@
 
 ;;
 ;; Markdown mode
+(add-to-list 'load-path (concat user-emacs-directory "markdown-mode/"))
 (autoload 'markdown-mode "markdown-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
