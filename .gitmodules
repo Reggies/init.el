@@ -25,3 +25,6 @@
 [submodule "rust-mode"]
 	path = rust-mode
 	url = https://github.com/rust-lang/rust-mode
+[submodule "glsl-mode"]
+	path = glsl-mode
+	url = https://github.com/jimhourihan/glsl-mode

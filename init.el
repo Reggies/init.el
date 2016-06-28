@@ -150,7 +150,8 @@
 (require 'erlang-start)
 
 ;;
-;; Configure auto-mode for GLSL
+;; GLSL
+(add-to-list 'load-path (concat user-emacs-directory "glsl-mode/"))
 (autoload 'glsl-mode "glsl-mode" nil t)
 (setq auto-mode-alist
       (append '(("\\.vert\\'" . glsl-mode)
