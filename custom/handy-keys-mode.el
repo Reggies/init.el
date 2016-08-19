@@ -96,6 +96,7 @@
         (define-key map (kbd "C-}") 'shrink-window-to-right)
         (define-key map (kbd "C-{") 'shrink-window-to-left)
         (define-key map (kbd "C-x C-<backspace>") 'delete-trailing-whitespace)
+        (define-key map (kbd "C-c C-w") 'subword-mode)
 
         (define-key map (kbd "M-<") 'insert-pair)
         (define-key map (kbd "M-\"") 'insert-pair)
