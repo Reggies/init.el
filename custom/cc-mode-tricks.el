@@ -24,14 +24,10 @@
 
 ;;; Code:
 
-(setq-default c-basic-offset 4
-              c-offsets-alist '(cons (statement-case-open . 4)
-                                     (inline-open . 0)
-                                     (inextern-lang . 0)
-                                     ;(innamespace . 0)
-                                     c-offsets-alist)
-              c-default-style '((java-mode . "java")
-                                (other . "awk"))
+(require 'reggies-c-style)
+
+(setq-default c-default-style '((java-mode . "java")
+                                (other . "reggies"))
               cc-other-file-alist '(("\\.cc$" ff-cc-hh-converter)
                                     ("\\.hh$" ff-cc-hh-converter)
                                     ("\\.c$" (".h"))
