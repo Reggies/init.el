@@ -91,10 +91,6 @@
 (add-to-list 'auto-mode-alist '("\\.cmake\\'" . cmake-mode))
 (add-to-list 'auto-mode-alist '("CMakeCache\\.txt\\'" . cmake-mode))
 
-(autoload 'applescript-mode "applescript-mode"
-  "Major mode for editing AppleScript source." t)
-(add-to-list 'auto-mode-alist '("\\.applescript$" . applescript-mode))
-
 ;; Lua!
 (add-to-list 'load-path (concat user-emacs-directory "lua-mode/"))
 (autoload 'lua-mode "lua-mode" "Lua editing mode." t)
