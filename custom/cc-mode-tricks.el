@@ -26,7 +26,14 @@
 
 (require 'reggies-c-style)
 
+;; Google C/C++ source code style
+(require 'google-c-style)
+(add-hook 'c-mode-common-hook 'google-set-c-style)
+
+(c-add-style "Google" google-c-style nil)
+
 (setq-default c-default-style '((java-mode . "java")
+                                (c++-mode . "google")
                                 (other . "reggies"))
               cc-other-file-alist '(("\\.cc$" ff-cc-hh-converter)
                                     ("\\.hh$" ff-cc-hh-converter)

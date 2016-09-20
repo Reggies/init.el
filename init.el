@@ -52,10 +52,6 @@
 
 (add-to-list 'load-path (concat user-emacs-directory "custom"))
 
-;; Google C/C++ source code style
-(load "google-c-style")
-(add-hook 'c-mode-common-hook 'google-set-c-style)
-
 ;; Dockerfile
 (add-to-list 'load-path (concat user-emacs-directory "dockerfile-mode/"))
 (autoload 'dockerfile-mode "dockerfile-mode" nil t)
