@@ -80,6 +80,11 @@
 (autoload 'rust-mode "rust-mode" "Major mode for Rust" t)
 (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
 
+;;
+;; TOML
+(add-to-list 'load-path (concat user-emacs-directory "toml-mode.el/"))
+(require 'toml-mode)
+
 ;; Caffe
 (add-to-list 'load-path (concat user-emacs-directory "caffe-mode/"))
 (autoload 'caffe-mode "caffe-mode" "Major mode for Caffe" t)
@@ -190,7 +195,7 @@
 
 ;; An attempt to speedup kmacro-call-macro by disabling font-lock-mode
 (when (fboundp 'advice-add)
-  (advice-add 'kmacro-call-macro :around 
+  (advice-add 'kmacro-call-macro :around
               (lambda (orig &rest args)
                 (progn
                   (font-lock-mode -1)

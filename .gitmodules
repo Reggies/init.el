@@ -34,3 +34,6 @@
 [submodule "pdf-mode.el"]
 	path = pdf-mode.el
 	url = https://github.com/mishoo/pdf-mode.el
+[submodule "toml-mode.el"]
+	path = toml-mode.el
+	url = https://github.com/dryman/toml-mode.el
