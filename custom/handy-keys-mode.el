@@ -1,6 +1,6 @@
-;;; handy-keys.el --- It is Handy Keys mode which contains all my custom shortcuts
+;; handy-keys.el --- minor mode for my keybindings
 
-;; Copyright (C) 2014  Alexey Natalin
+;; Copyright (C) 2014-2016  Alexey Natalin
 
 ;; Author:  Alexey Natalin <mrreggies@gmail.com>
 ;; Keywords: shortcuts
@@ -20,7 +20,7 @@
 
 ;;; Commentary:
 
-;; minor mode for handy keys
+;; Some useful shortcuts which I've become accustomed to
 
 ;;; Code:
 
@@ -76,16 +76,9 @@
 
 (setq handy-keys-mode-map
       (let ((map (make-sparse-keymap)))
-        ;;
-        ;; ff-find-other-file [in other buffer = nil] [ignore includes = t]
         (define-key map (kbd "C-<f4>") 'switch-to-header)
-
-        ;;
-        ;; ff-find-other-file [in other buffer = nil] [ignore includes = nil]
         (define-key map (kbd "C-x C-o") 'ff-find-other-file)
-
         (define-key map (kbd "C-<f5>") 'reload-init-file)
-        (define-key map (kbd "C-x C-r") 'replace-string)
         (define-key map (kbd "C-;") 'upcase-char)
         (define-key map (kbd "C-l") 'downcase-char)
         (define-key map (kbd "C-a") 'move-indent-or-beginning-of-line)
@@ -97,7 +90,6 @@
         (define-key map (kbd "C-{") 'shrink-window-to-left)
         (define-key map (kbd "C-x C-<backspace>") 'delete-trailing-whitespace)
         (define-key map (kbd "C-c C-w") 'subword-mode)
-
         (define-key map (kbd "M-<") 'insert-pair)
         (define-key map (kbd "M-\"") 'insert-pair)
         map))
