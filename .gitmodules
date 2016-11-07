@@ -37,3 +37,6 @@
 [submodule "toml-mode.el"]
 	path = toml-mode.el
 	url = https://github.com/dryman/toml-mode.el
+[submodule "yaml-mode"]
+	path = yaml-mode
+	url = https://github.com/yoshiki/yaml-mode

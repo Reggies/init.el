@@ -127,6 +127,11 @@
 (autoload 'qml-mode "qml-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.qml\\'" . qml-mode))
 
+;; yaml
+(add-to-list 'load-path (concat user-emacs-directory "yaml-mode/"))
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
+
 ;; Qt
 (setq auto-mode-alist
       (append '(("\\.pro\\'" . text-mode)
