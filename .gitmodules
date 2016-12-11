@@ -43,3 +43,6 @@
 [submodule "emacs-scala-mode"]
 	path = emacs-scala-mode
 	url = https://github.com/ensime/emacs-scala-mode
+[submodule "haskell-mode"]
+	path = haskell-mode
+	url = https://github.com/haskell/haskell-mode

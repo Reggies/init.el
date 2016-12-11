@@ -106,6 +106,10 @@
 (add-to-list 'load-path (concat user-emacs-directory "emacs-scala-mode/"))
 (require 'scala-mode)
 
+;; Haskell
+(add-to-list 'load-path (concat user-emacs-directory "haskell-mode/"))
+(require 'haskell)
+
 ;;
 ;; Python!
 (load "py-mode-tricks")
