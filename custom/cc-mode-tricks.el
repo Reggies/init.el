@@ -25,6 +25,7 @@
 ;;; Code:
 
 (require 'reggies-c-style)
+(require 'qt-c-style)
 
 ;; Google C/C++ source code style
 (require 'google-c-style)
@@ -33,8 +34,8 @@
 (c-add-style "Google" google-c-style nil)
 
 (setq-default c-default-style '((java-mode . "java")
-                                (c++-mode . "google")
-                                (other . "reggies"))
+                                (c++-mode . "qt")
+                                (other . "awk"))
               cc-other-file-alist '(("\\.cc$" ff-cc-hh-converter)
                                     ("\\.hh$" ff-cc-hh-converter)
                                     ("\\.c$" (".h"))
