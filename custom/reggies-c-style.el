@@ -20,17 +20,17 @@
 
 ;;; Commentary:
 
-;; 
+;;
 
 ;;; Code:
 
-(defconst reggies-c-style
-  '((c-basic-offset . 4)
-    (c-offsets-alist . ((statement-case-open . +)
-                        (inline-open . 0)
-                        (inextern-lang . 0)))))
+(c-add-style "reggies"
+             '("awk"
+               (c-basic-offset . 4)
+               (c-offsets-alist . ((statement-case-open . +)
+                                   (inline-open . 0)
+                                   (inextern-lang . 0)))))
 
-(c-add-style "reggies" reggies-c-style)
 
 (provide 'reggies-c-style)
 ;;; reggies-c-style.el ends here
