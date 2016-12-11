@@ -40,3 +40,6 @@
 [submodule "yaml-mode"]
 	path = yaml-mode
 	url = https://github.com/yoshiki/yaml-mode
+[submodule "emacs-scala-mode"]
+	path = emacs-scala-mode
+	url = https://github.com/ensime/emacs-scala-mode

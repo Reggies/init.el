@@ -102,6 +102,10 @@
 (add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
 (add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
 
+;; Scala?
+(add-to-list 'load-path (concat user-emacs-directory "emacs-scala-mode/"))
+(require 'scala-mode)
+
 ;;
 ;; Python!
 (load "py-mode-tricks")
