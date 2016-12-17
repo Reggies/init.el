@@ -1,6 +1,6 @@
-(add-to-list 'custom-theme-load-path (concat user-emacs-directory "seoul256.el"))
+(add-to-list 'custom-theme-load-path (concat user-emacs-directory "suscolors-emacs"))
 
-(load-theme 'seoul256 t)
+(load-theme 'suscolors t)
 
 (setq-default indent-tabs-mode nil
               inhibit-startup-screen t
