@@ -1,7 +1,3 @@
-(add-to-list 'custom-theme-load-path (concat user-emacs-directory "suscolors-emacs"))
-
-(load-theme 'suscolors t)
-
 (setq-default indent-tabs-mode nil
               inhibit-startup-screen t
               completion-ignore-case t
@@ -221,3 +217,18 @@
 
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
+
+(add-to-list 'default-frame-alist '(font . "Liberation Mono-11.5"))
+(set-face-attribute 'default t
+                    :font "Liberation Mono-11.5"
+                    :foreground "burlywood2"
+                    :background "gray10")
+(set-face-attribute 'font-lock-builtin-face nil         :foreground "#DA898F")
+(set-face-attribute 'font-lock-comment-face nil         :foreground "gray50")
+(set-face-attribute 'font-lock-constant-face nil        :foreground "olive drab")
+(set-face-attribute 'font-lock-doc-face nil             :foreground "gray50")
+(set-face-attribute 'font-lock-function-name-face nil   :foreground "burlywood2")
+(set-face-attribute 'font-lock-keyword-face nil         :foreground "DarkGoldenrod2")
+(set-face-attribute 'font-lock-string-face nil          :foreground "olive drab")
+(set-face-attribute 'font-lock-type-face nil            :foreground "burlywood2")
+(set-face-attribute 'font-lock-variable-name-face nil   :foreground "burlywood2")
