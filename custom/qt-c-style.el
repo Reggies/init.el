@@ -20,14 +20,16 @@
 
 ;;; Commentary:
 
-;; 
+;;
 
 ;;; Code:
 
 
 (c-add-style "qt"
-             '("gnu" 
+             '("stroustrup"
+               (c-recognize-knr-p . nil)
                (c-basic-offset . 4)
+               (indent-tabs-mode . nil)
                (c-offsets-alist . ((statement-case-open . +)
                                    (inline-open . 0)
                                    (innamespace . 0)
