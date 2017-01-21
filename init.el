@@ -48,7 +48,6 @@
                   (cons '(font . "Monospace-10") default-frame-alist)))
 
 (fset 'yes-or-no-p 'y-or-n-p)
-(scroll-bar-mode -1)
 
 (add-to-list 'load-path (concat user-emacs-directory "custom"))
 
