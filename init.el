@@ -84,6 +84,7 @@
 (add-to-list 'load-path (concat user-emacs-directory "caffe-mode/"))
 (autoload 'caffe-mode "caffe-mode" "Major mode for Caffe" t)
 (add-to-list 'auto-mode-alist '("\\.prototxt\\'" . caffe-mode))
+(add-to-list 'auto-mode-alist '("\\.pt\\'" . caffe-mode))
 
 ;; CMake
 (autoload 'cmake-mode "cmake-mode" nil t)
