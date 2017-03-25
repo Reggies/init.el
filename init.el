@@ -1,4 +1,4 @@
-(setq-default indent-tabs-mode nil
+ (setq-default indent-tabs-mode nil
               inhibit-startup-screen t
               completion-ignore-case t
               read-file-name-completion-ignore-case nil
@@ -37,11 +37,6 @@
               focus-follows-mouse t
 
               windmove-wrap-around t)
-
-;; Windows workaround
-(if (eq system-type 'gnu/linux)
-    (setq-default default-frame-alist
-                  (cons '(font . "Monospace-10") default-frame-alist)))
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -217,9 +212,19 @@
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
 
-(add-to-list 'default-frame-alist '(font . "Liberation Mono-11.5"))
+;; Windows workaround
+(when (eq system-type 'windows-nt)
+  (setq-default visible-bell 1))
+
+(defconst my-font-name
+  (if (eq system-type 'windows-nt)
+      "Consolas-11.5"
+    "Monospace-10"))
+
+(add-to-list 'default-frame-alist '(font . my-font-name))
+
 (set-face-attribute 'default t
-                    :font "Liberation Mono-11.5"
+                    :font my-font-name
                     :foreground "burlywood2"
                     :background "gray10")
 (set-face-attribute 'font-lock-builtin-face nil         :foreground "#DA898F")
