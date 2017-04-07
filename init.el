@@ -39,7 +39,11 @@
               windmove-wrap-around t)
 
 (fset 'yes-or-no-p 'y-or-n-p)
-(tool-bar-mode -1)
+
+(if (fboundp 'tool-bar-mode)
+    (tool-bar-mode -1))
+(if (fboundp 'scroll-bar-mode)
+    (scroll-bar-mode -1))
 
 (add-to-list 'load-path (concat user-emacs-directory "custom"))
 
