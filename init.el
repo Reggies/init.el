@@ -47,6 +47,11 @@
 (autoload 'dockerfile-mode "dockerfile-mode" nil t)
 (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
 
+;; C#
+(add-to-list 'load-path (concat user-emacs-directory "csharp-mode/"))
+(autoload 'csharp-mode "csharp-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.cs\\'" . csharp-mode))
+
 ;; PDF-mode
 (add-to-list 'load-path (concat user-emacs-directory "pdf-mode.el/"))
 (autoload 'pdf-mode "pdf-mode" nil t)

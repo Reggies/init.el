@@ -46,3 +46,6 @@
 [submodule "suscolors-emacs"]
 	path = suscolors-emacs
 	url = https://github.com/TheSuspiciousWombat/suscolors-emacs
+[submodule "csharp-mode"]
+	path = csharp-mode
+	url = https://github.com/josteink/csharp-mode
