@@ -229,23 +229,7 @@
 (when (eq system-type 'windows-nt)
   (setq-default visible-bell 1))
 
-(defconst my-font-name
-  (if (eq system-type 'windows-nt)
-      "Consolas-11.5"
-    "Monospace-10"))
-
-(add-to-list 'default-frame-alist '(font . my-font-name))
-
-(set-face-attribute 'default t
-                    :font my-font-name
-                    :foreground "burlywood2"
-                    :background "gray10")
-(set-face-attribute 'font-lock-builtin-face nil         :foreground "#DA898F")
-(set-face-attribute 'font-lock-comment-face nil         :foreground "gray50")
-(set-face-attribute 'font-lock-constant-face nil        :foreground "olive drab")
-(set-face-attribute 'font-lock-doc-face nil             :foreground "gray50")
-(set-face-attribute 'font-lock-function-name-face nil   :foreground "burlywood2")
-(set-face-attribute 'font-lock-keyword-face nil         :foreground "DarkGoldenrod2")
-(set-face-attribute 'font-lock-string-face nil          :foreground "olive drab")
-(set-face-attribute 'font-lock-type-face nil            :foreground "burlywood2")
-(set-face-attribute 'font-lock-variable-name-face nil   :foreground "burlywood2")
+(load-theme 'tango-dark)
+(if (eq system-type 'windows-nt)
+    (set-frame-font "Consolas-11.5" nil t)
+  (set-frame-font "Terminus-8" nil t))
