@@ -1,4 +1,4 @@
- (setq-default indent-tabs-mode nil
+(setq-default indent-tabs-mode nil
               inhibit-startup-screen t
               completion-ignore-case t
               read-file-name-completion-ignore-case nil
@@ -229,7 +229,11 @@
 (when (eq system-type 'windows-nt)
   (setq-default visible-bell 1))
 
-(load-theme 'tango-dark)
+(add-to-list 'custom-theme-load-path (concat user-emacs-directory "foggy-night-theme"))
+(load-theme 'foggy-night t)
+
+;; (load-theme 'tango-dark)
 (if (eq system-type 'windows-nt)
     (set-frame-font "Consolas-11.5" nil t)
   (set-frame-font "Terminus-8" nil t))
+
