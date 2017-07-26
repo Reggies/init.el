@@ -235,5 +235,5 @@
 ;; (load-theme 'tango-dark)
 (if (eq system-type 'windows-nt)
     (set-frame-font "Consolas-11.5" nil t)
-  (set-frame-font "Terminus-8" nil t))
+  (set-frame-font "Terminus-9" nil t))
 
