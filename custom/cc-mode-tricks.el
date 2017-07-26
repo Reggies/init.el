@@ -68,14 +68,18 @@
           (lambda ()
             (define-key c++-mode-map (kbd "RET") 'newline-and-indent)))
 
+(defun escape-bad-preprocessor-chars (str)
+  (replace-regexp-in-string "[-]" "___" str))
+
 ;; auto insert include guard into newly created C header
 (defun add-include-guard ()
   (add-to-list 'auto-insert-alist
                '(("\\.\\([Hh]\\|hh\\|hpp\\)\\'" . "Include guard")
                  (upcase
                   (concat
-                   (file-name-nondirectory
-                    (file-name-sans-extension buffer-file-name))
+                   (escape-bad-preprocessor-chars
+                    (file-name-nondirectory
+                     (file-name-sans-extension buffer-file-name)))
                    "_"
                    (file-name-extension buffer-file-name)
                    "_"))
