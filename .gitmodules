@@ -12,7 +12,7 @@
 	url = https://github.com/immerrr/lua-mode
 [submodule "llvm-mode"]
 	path = llvm-mode
-	url = https://github.com/emacsmirror/llvm-mode
+	url = https://github.com/emacsattic/llvm-mode
 [submodule "qml-mode"]
 	path = qml-mode
 	url = https://github.com/coldnew/qml-mode
