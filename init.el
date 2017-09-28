@@ -36,7 +36,8 @@
               window-combination-resize t
               focus-follows-mouse t
 
-              windmove-wrap-around t)
+              windmove-wrap-around t
+              vc-handled-backends ())
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
