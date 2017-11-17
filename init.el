@@ -220,9 +220,11 @@
   (setq-default visible-bell 1))
 
 (add-to-list 'custom-theme-load-path (concat user-emacs-directory "foggy-night-theme"))
-(load-theme 'foggy-night t)
 
-;; (load-theme 'tango-dark)
+(if (eq system-type 'windows-nt)
+    (load-theme 'leuven)
+  (load-theme 'foggy-night t))
+
 (if (eq system-type 'windows-nt)
     (set-frame-font "Consolas-11.5" nil t)
   (set-frame-font "Terminus-9" nil t))
