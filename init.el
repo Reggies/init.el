@@ -129,6 +129,12 @@
                 ("\\.qrc\\'" . xml-mode))
               auto-mode-alist))
 
+;; 
+;; Tianocore
+(add-to-list 'auto-mode-alist '("\\.dsc\\'" . conf-mode))
+(add-to-list 'auto-mode-alist '("\\.dec\\'" . conf-mode))
+(add-to-list 'auto-mode-alist '("\\.inf\\'" . conf-mode))
+
 ;;
 ;; Treat doxyfile as config file
 (add-to-list 'auto-mode-alist '("Doxyfile\\'" . conf-mode))
