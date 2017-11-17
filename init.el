@@ -41,13 +41,6 @@
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
-(if (fboundp 'tool-bar-mode)
-    (tool-bar-mode -1))
-(if (fboundp 'scroll-bar-mode)
-    (scroll-bar-mode -1))
-(if (fboundp 'menu-bar-mode)
-    (menu-bar-mode -1))
-
 (add-to-list 'load-path (concat user-emacs-directory "custom"))
 
 ;; Dockerfile
@@ -115,20 +108,6 @@
 (require 'haskell)
 
 ;;
-;; Python!
-(load "py-mode-tricks")
-
-;;
-;; CC mode
-(load "cc-mode-tricks")
-(load "c++11-hacks")
-
-;;
-;; Custom keys
-(load "handy-keys-mode")
-(handy-keys-mode t)
-
-;;
 ;; Markdown mode
 (add-to-list 'load-path (concat user-emacs-directory "markdown-mode/"))
 (autoload 'markdown-mode "markdown-mode" nil t)
@@ -158,10 +137,6 @@
 ;; Octave
 (add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
 
-;;
-;; org-mode for TOOD files
-(add-to-list 'auto-mode-alist '("TODO\\'" . org-mode))
-
 ;; mlt for melt
 (add-to-list 'auto-mode-alist '("\\.mlt\\'" . xml-mode))
 
@@ -189,10 +164,24 @@
                 ("\\.tcs\\'" . glsl-mode))
               auto-mode-alist))
 
+(load "py-mode-tricks")
+(load "cc-mode-tricks")
+(load "c++11-hacks")
+(load "org-mode-todo")
+(load "handy-keys-mode")
+
+(handy-keys-mode t)
 (auto-insert-mode t)
 (pending-delete-mode t)
 (show-paren-mode t)
 (electric-pair-mode t)
+
+(if (fboundp 'tool-bar-mode)
+    (tool-bar-mode -1))
+(if (fboundp 'scroll-bar-mode)
+    (scroll-bar-mode -1))
+(if (fboundp 'menu-bar-mode)
+    (menu-bar-mode -1))
 
 (require 'linum)
 (global-linum-mode t)
