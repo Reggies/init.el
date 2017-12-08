@@ -39,6 +39,10 @@
               windmove-wrap-around t
               vc-handled-backends ())
 
+(when (eq system-type 'windows-nt)
+  (setq-default visible-bell 1
+                inhibit-compacting-font-caches t))
+
 (fset 'yes-or-no-p 'y-or-n-p)
 
 (add-to-list 'load-path (concat user-emacs-directory "custom"))
@@ -221,17 +225,8 @@
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
 
-;; Windows workaround
-(when (eq system-type 'windows-nt)
-  (setq-default visible-bell 1))
-
 (add-to-list 'custom-theme-load-path (concat user-emacs-directory "foggy-night-theme"))
-
-(if (eq system-type 'windows-nt)
-    (load-theme 'leuven)
-  (load-theme 'foggy-night t))
 
 (if (eq system-type 'windows-nt)
     (set-frame-font "Consolas-11.5" nil t)
   (set-frame-font "Terminus-9" nil t))
-
