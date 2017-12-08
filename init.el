@@ -37,7 +37,8 @@
               focus-follows-mouse t
 
               windmove-wrap-around t
-              vc-handled-backends ())
+              vc-handled-backends ()
+              paragraph-ignore-fill-prefix t)
 
 (when (eq system-type 'windows-nt)
   (setq-default visible-bell 1
