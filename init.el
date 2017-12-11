@@ -231,7 +231,6 @@
     (load-theme 'leuven)
   (load-theme 'foggy-night t))
 
-(if (eq system-type 'windows-nt)
-    (set-frame-font "Consolas-11.5" nil t)
-  (set-frame-font "Terminus-9" nil t))
+(when (eq system-type 'windows-nt)
+  (set-frame-font "Consolas-11.5" nil t))
 
