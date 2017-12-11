@@ -37,7 +37,12 @@
               focus-follows-mouse t
 
               windmove-wrap-around t
-              vc-handled-backends ())
+              vc-handled-backends ()
+              paragraph-ignore-fill-prefix t)
+
+(when (eq system-type 'windows-nt)
+  (setq-default visible-bell 1
+                inhibit-compacting-font-caches t))
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -221,16 +226,7 @@
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
 
-;; Windows workaround
-(when (eq system-type 'windows-nt)
-  (setq-default visible-bell 1))
-
 (add-to-list 'custom-theme-load-path (concat user-emacs-directory "foggy-night-theme"))
-
-(if (eq system-type 'windows-nt)
-    (load-theme 'leuven)
-  (load-theme 'foggy-night t))
 
 (when (eq system-type 'windows-nt)
   (set-frame-font "Consolas-11.5" nil t))
-
