@@ -180,6 +180,7 @@
 (load "c++11-hacks")
 (load "org-mode-todo")
 (load "handy-keys-mode")
+(load "blank-mode")
 
 (handy-keys-mode t)
 (auto-insert-mode t)
