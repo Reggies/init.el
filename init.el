@@ -229,6 +229,5 @@
 
 (add-to-list 'custom-theme-load-path (concat user-emacs-directory "foggy-night-theme"))
 
-(if (eq system-type 'windows-nt)
-    (set-frame-font "Consolas-11.5" nil t)
-  (set-frame-font "Terminus-9" nil t))
+(when (eq system-type 'windows-nt)
+  (set-frame-font "Consolas-11.5" nil t))
