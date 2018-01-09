@@ -1,6 +1,6 @@
 ;;; cc-mode-tricks.el --- Hacks, keys, customizations.
 
-;; Copyright (C) 2014  Alexey Natalin
+;; Copyright (C) 2014-2017  Alexey Natalin
 
 ;; Author:  Alexey Natalin <mrreggies@gmail.com>
 ;; Keywords: languages
@@ -33,6 +33,9 @@
 
 (c-add-style "Google" google-c-style nil)
 
+(when (eq system-type 'windows-nt)
+  (setq-default ff-case-fold-search nil))
+
 (setq-default c-default-style '((java-mode . "java")
                                 (c++-mode . "qt")
                                 (other . "awk"))
@@ -41,10 +44,15 @@
                                     ("\\.c$" (".h"))
                                     ("\\.C$" (".H"))
                                     ("\\.hpp$" (".cpp" ".c" ".cc" ".h"))
-                                    ("\\.h$" (".cpp" ".c" ".cc" ".cxx" ".S"))
+                                    ("\\.HPP$" (".CPP" ".C" ".CC" ".H"))
+                                    ("\\.h$" (".cpp" ".c" ".cc" ".cxx" ".s .asm"))
+                                    ("\\.H$" (".CPP" ".C" ".CC" ".CXX" ".S .ASM"))
                                     ("\\.cpp$" (".h" ".hpp"))
+                                    ("\\.CPP$" (".H" ".HPP"))
                                     ("\\.cxx$" (".hpp" ".h"))
-                                    ("\\.S$" (".h"))))
+                                    ("\\.CXX$" (".HPP" ".H"))
+                                    ("\\.s$" (".h"))
+                                    ("\\.s$" (".H"))))
 
 (setq auto-mode-alist
       (append '(("\\.inl\\'" . c++-mode)
