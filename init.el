@@ -151,6 +151,11 @@
 ;; mlt for melt
 (add-to-list 'auto-mode-alist '("\\.mlt\\'" . xml-mode))
 
+;:gas
+(add-to-list 'load-path (concat user-emacs-directory "gas-mode/"))
+(require 'gas-mode)
+(add-to-list 'auto-mode-alist '("\\.S\\'" . gas-mode))
+
 (require 'hippie)
 (global-set-key (kbd "M-/") 'hippie-expand)
 (add-to-list 'hippie-expand-try-functions-list 'try-expand-flexible-abbrev)

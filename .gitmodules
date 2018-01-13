@@ -52,3 +52,6 @@
 [submodule "foggy-night-theme"]
 	path = foggy-night-theme
 	url = https://github.com/mswift42/foggy-night-theme
+[submodule "gas-mode"]
+	path = gas-mode
+	url = https://github.com/emacsattic/gas-mode
