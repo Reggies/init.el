@@ -162,10 +162,12 @@
 (require 'gas-mode)
 (add-to-list 'auto-mode-alist '("\\.S\\'" . gas-mode))
 
+;; hippie
 (require 'hippie)
 (global-set-key (kbd "M-/") 'hippie-expand)
 (add-to-list 'hippie-expand-try-functions-list 'try-expand-flexible-abbrev)
 
+;; erlang
 (add-to-list 'load-path (concat user-emacs-directory "erlware-mode/"))
 (require 'erlang-start)
 
@@ -206,8 +208,11 @@
 (if (fboundp 'menu-bar-mode)
     (menu-bar-mode -1))
 
-(require 'linum)
-(global-linum-mode t)
+;; (require 'linum)
+;; (global-linum-mode t)
+
+(require 'nlinum)
+(global-nlinum-mode t)
 
 ;;
 ;; Placing all temporary files into /tmp
