@@ -44,6 +44,12 @@
   (setq-default visible-bell 1
                 inhibit-compacting-font-caches t))
 
+(when (eq system-type 'windows-nt)
+  (set-default-font "Consolas-11.5" nil t))
+
+(when (eq system-type 'gnu/linux)
+   (set-default-font "Noto Mono-11" nil t))
+
 (fset 'yes-or-no-p 'y-or-n-p)
 
 (add-to-list 'load-path (concat user-emacs-directory "custom"))
@@ -233,5 +239,4 @@
 
 (add-to-list 'custom-theme-load-path (concat user-emacs-directory "foggy-night-theme"))
 
-(when (eq system-type 'windows-nt)
-  (set-frame-font "Consolas-11.5" nil t))
+(load-theme 'foggy-night t nil)
