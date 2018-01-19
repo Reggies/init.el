@@ -192,6 +192,7 @@
 (load "cc-mode-tricks")
 (load "c++11-hacks")
 (load "org-mode-todo")
+(load "org-mode-hooks")
 (load "handy-keys-mode")
 (load "blank-mode")
 
