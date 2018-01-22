@@ -244,6 +244,8 @@
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
 
-(add-to-list 'custom-theme-load-path (concat user-emacs-directory "foggy-night-theme"))
-
-(load-theme 'foggy-night t nil)
+(when (or (eq system-type 'gnu/linux)
+          (eq system-type 'gnu/darwin))
+  (add-to-list 'custom-theme-load-path
+               (concat user-emacs-directory "foggy-night-theme"))
+  (load-theme 'foggy-night t nil))
