@@ -41,7 +41,7 @@
               paragraph-ignore-fill-prefix t)
 
 (when (eq system-type 'windows-nt)
-  (setq-default visible-bell 1
+  (setq-default ring-bell-function nil
                 inhibit-compacting-font-caches t))
 
 (when (eq system-type 'windows-nt)
