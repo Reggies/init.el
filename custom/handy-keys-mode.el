@@ -65,6 +65,12 @@
                    (forward-point n))
   (forward-char n))
 
+(defun delete-indentation-forward (arg)
+  "Move forward a single line and delete indentation backwards"
+  (interactive "p")
+  (forward-line)
+  (delete-indentation))
+
 (defun move-indent-or-beginning-of-line ()
   "Jumps on the line indent and than on the beginning of line."
   (interactive)
@@ -76,6 +82,7 @@
 
 (setq handy-keys-mode-map
       (let ((map (make-sparse-keymap)))
+        (define-key map (kbd "C-M-^") 'delete-indentation-forward)
         (define-key map (kbd "C-<f4>") 'switch-to-header)
         (define-key map (kbd "C-x C-o") 'ff-find-other-file)
         (define-key map (kbd "C-<f5>") 'reload-init-file)
