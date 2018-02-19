@@ -55,3 +55,6 @@
 [submodule "gas-mode"]
 	path = gas-mode
 	url = https://github.com/emacsattic/gas-mode
+[submodule "groovy-mode"]
+	path = groovy-mode
+	url = https://github.com/timvisher/groovy-mode

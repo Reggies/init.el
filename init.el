@@ -172,6 +172,11 @@
 (require 'erlang-start)
 
 ;;
+(add-to-list 'load-path (concat user-emacs-directory "groovy-mode/"))
+(require 'groovy-mode)
+(add-to-list 'auto-mode-alist '("Jenkinsfile" . groovy-mode))
+
+;;
 ;; GLSL
 (add-to-list 'load-path (concat user-emacs-directory "glsl-mode/"))
 (autoload 'glsl-mode "glsl-mode" nil t)
