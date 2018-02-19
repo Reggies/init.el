@@ -44,11 +44,12 @@
   (setq-default ring-bell-function nil
                 inhibit-compacting-font-caches t))
 
-(when (eq system-type 'windows-nt)
-  (set-default-font "Consolas-11.5" nil t))
-
-(when (eq system-type 'gnu/linux)
-   (set-default-font "Noto Mono-11" nil t))
+(set-default-font
+ (cond
+  ((find-font (font-spec :name "Hack")) "Hack-11")
+  ((find-font (font-spec :name "Noto Mono")) "Noto Mono-11")
+  ((find-font (font-spec :name "Droid Sans Mono")) "Droid Sans Mono-11")
+  ((find-font (font-spec :name "Consolas")) "Consolas-11.5"))) ;; windows fallback
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
