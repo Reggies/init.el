@@ -70,13 +70,6 @@
 (autoload 'pdf-mode "pdf-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.pdf\\'" . pdf-mode))
 
-;; LLVM-mode
-(add-to-list 'load-path (concat user-emacs-directory "llvm-mode/"))
-(autoload 'llvm-mode "llvm-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.ll\\'" . llvm-mode))
-(autoload 'tablegen-mode "tablegen-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.td\\'" . tablegen-mode))
-
 ;; Protobuf
 (require 'cl)
 (add-to-list 'load-path (concat user-emacs-directory "protobuf-mode/"))
