@@ -46,6 +46,8 @@
 
 (set-default-font
  (cond
+  ((and (find-font (font-spec :name "Hack"))
+        (eq system-type 'windows-nt)) "Hack-10.5")
   ((find-font (font-spec :name "Hack")) "Hack-11")
   ((find-font (font-spec :name "Noto Mono")) "Noto Mono-11")
   ((find-font (font-spec :name "Droid Sans Mono")) "Droid Sans Mono-11")
