@@ -24,6 +24,16 @@
 
 ;;; Code:
 
+;; https://www.emacswiki.org/emacs/ReverseWords
+(defun reverse-words (beg end)
+  "Reverse words between beg and end"
+  (interactive "*r")
+  (apply
+   'insert
+   (reverse
+    (split-string
+     (delete-and-extract-region beg end) "\\b"))))
+
 (defun toggle-truncate-lines ()
   "Toggle truncate-lines value in current buffer"
   (interactive)
