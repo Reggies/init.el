@@ -61,9 +61,9 @@
      nil '(("\\<\\(alignof\\|alignas\\|constexpr\\|decltype\\|noexcept\\|nullptr\\|static_assert\\|thread_local\\|override\\|final\\)\\>" . font-lock-keyword-face)
            ("\\<\\(char16_t\\|char32_t\\)\\>" . font-lock-keyword-face)
 
-           ;; PREPROCESSOR_CONSTANT, PREPROCESSORCONSTANT
+           ;; PREPROCESSOR_CONSTANT, PREPROCESSORCONSTANT_12
            ("\\<[A-Z]*_[A-Z_]+\\>" . font-lock-constant-face)
-           ("\\<[A-Z]\\{5,\\}\\>"  . font-lock-constant-face)
+           ("\\<[A-Z]+[A-Za-z0-9_]*\\>"  . font-lock-constant-face)
 
            ;; hexadecimal numbers
            ("\\<0[xX][0-9A-Fa-f]+\\(L\\|LL\\|U\\|UL\\|ULL\\)?\\>" . font-lock-constant-face)
