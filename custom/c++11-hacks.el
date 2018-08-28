@@ -66,7 +66,7 @@
            ("\\<[A-Z]\\{5,\\}\\>"  . font-lock-constant-face)
 
            ;; hexadecimal numbers
-           ("\\<0[xX][0-9A-Fa-f]+\\>" . font-lock-constant-face)
+           ("\\<0[xX][0-9A-Fa-f]+\\(L\\|LL\\|U\\|UL\\|ULL\\)?\\>" . font-lock-constant-face)
 
            ;; integer/float/scientific numbers
            ("\\<[\\-+]*[0-9]*\\.?[0-9]+\\f?\\([ulUL]+\\|[eE][\\-+]?[0-9]+\\)?\\>" . font-lock-constant-face)
