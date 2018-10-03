@@ -210,9 +210,6 @@
 (if (fboundp 'menu-bar-mode)
     (menu-bar-mode -1))
 
-;; (require 'linum)
-;; (global-linum-mode t)
-
 (require 'nlinum)
 (global-nlinum-mode t)
 
