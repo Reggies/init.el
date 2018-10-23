@@ -38,7 +38,8 @@
 
               windmove-wrap-around t
               vc-handled-backends ()
-              paragraph-ignore-fill-prefix t)
+              paragraph-ignore-fill-prefix t
+              visible-bell t)
 
 (when (eq system-type 'windows-nt)
   (setq-default ring-bell-function nil
