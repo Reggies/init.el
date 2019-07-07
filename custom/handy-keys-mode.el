@@ -90,6 +90,13 @@
     (when (equal old-point (point))
       (move-beginning-of-line 1))))
 
+(defun my-reverse-characters (beg end)
+  "Reverse characters between BEG and END."
+  (interactive "r")
+  (let ((region (buffer-substring beg end)))
+    (delete-region beg end)
+    (insert (nreverse region))))
+
 (setq handy-keys-mode-map
       (let ((map (make-sparse-keymap)))
         (define-key map (kbd "C-M-^") 'delete-indentation-forward)
