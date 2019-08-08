@@ -197,6 +197,7 @@
 (load "org-mode-hooks")
 (load "handy-keys-mode")
 (load "blank-mode")
+(load "nxml-custom")
 
 (handy-keys-mode t)
 (auto-insert-mode t)
