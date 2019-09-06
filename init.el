@@ -68,11 +68,6 @@
 (autoload 'csharp-mode "csharp-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.cs\\'" . csharp-mode))
 
-;; PDF-mode
-(add-to-list 'load-path (concat user-emacs-directory "pdf-mode.el/"))
-(autoload 'pdf-mode "pdf-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.pdf\\'" . pdf-mode))
-
 ;; Protobuf
 (require 'cl)
 (add-to-list 'load-path (concat user-emacs-directory "protobuf-mode/"))
@@ -150,9 +145,6 @@
 ;;
 ;; Octave
 (add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
-
-;; mlt for melt
-(add-to-list 'auto-mode-alist '("\\.mlt\\'" . xml-mode))
 
 ;:gas
 (add-to-list 'load-path (concat user-emacs-directory "gas-mode/"))
