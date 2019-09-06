@@ -156,10 +156,6 @@
 (global-set-key (kbd "M-/") 'hippie-expand)
 (add-to-list 'hippie-expand-try-functions-list 'try-expand-flexible-abbrev)
 
-;; erlang
-(add-to-list 'load-path (concat user-emacs-directory "erlware-mode/"))
-(require 'erlang-start)
-
 ;;
 (add-to-list 'load-path (concat user-emacs-directory "groovy-mode/"))
 (require 'groovy-mode)
