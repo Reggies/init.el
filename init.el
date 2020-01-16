@@ -43,7 +43,8 @@
 
 (when (eq system-type 'windows-nt)
   (setq-default ring-bell-function nil
-                inhibit-compacting-font-caches t))
+                inhibit-compacting-font-caches t)
+  (w32-register-hot-key [C-S-M-f]))
 
 (set-frame-font
  (cond
