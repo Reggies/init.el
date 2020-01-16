@@ -45,7 +45,7 @@
   (setq-default ring-bell-function nil
                 inhibit-compacting-font-caches t))
 
-(set-default-font
+(set-frame-font
  (cond
   ((and (find-font (font-spec :name "Hack"))
         (eq system-type 'windows-nt)) "Hack-10.5")
