@@ -97,12 +97,6 @@
 (add-to-list 'auto-mode-alist '("\\.cmake\\'" . cmake-mode))
 (add-to-list 'auto-mode-alist '("CMakeCache\\.txt\\'" . cmake-mode))
 
-;; Lua!
-(add-to-list 'load-path (concat user-emacs-directory "lua-mode/"))
-(autoload 'lua-mode "lua-mode" "Lua editing mode." t)
-(add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
-(add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
-
 ;; Scala?
 (add-to-list 'load-path (concat user-emacs-directory "emacs-scala-mode/"))
 (require 'scala-mode)
