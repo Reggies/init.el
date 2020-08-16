@@ -232,3 +232,10 @@
 
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
+
+(package-initialize)
+(require 'package)
+(setq package-archives
+      '(("gnu" . "https://elpa.gnu.org/packages/")
+        ("melpa" . "https://melpa.org/packages/")))
+(add-to-list 'package-selected-packages 'magit)
