@@ -97,6 +97,11 @@
 (add-to-list 'auto-mode-alist '("\\.cmake\\'" . cmake-mode))
 (add-to-list 'auto-mode-alist '("CMakeCache\\.txt\\'" . cmake-mode))
 
+;; Meson
+(add-to-list 'load-path (concat user-emacs-directory "meson-mode/"))
+(autoload 'meson-mode "meson-mode" nil t)
+(add-to-list 'auto-mode-alist '("meson\\.build\\'" . meson-mode))
+
 ;; Scala?
 (add-to-list 'load-path (concat user-emacs-directory "emacs-scala-mode/"))
 (require 'scala-mode)
