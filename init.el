@@ -230,6 +230,7 @@
 
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
+(put 'suspend-frame 'disabled t)
 
 (package-initialize)
 (require 'package)
